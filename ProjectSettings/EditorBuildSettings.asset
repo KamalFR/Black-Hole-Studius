@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Scenes/SCN_NaveController.unity
+    guid: e0a31e873e8754246952d4b72daeb96c
+  - enabled: 1
     path: Assets/Scenes/SCN_SoundTest.unity
     guid: 85571f6136dcd164e898d57bda47911a
   - enabled: 1
