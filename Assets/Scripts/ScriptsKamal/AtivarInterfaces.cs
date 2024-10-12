@@ -10,6 +10,7 @@ public class AtivarInterfaces : MonoBehaviour
     private bool canActive;
     private void Start()
     {
+    
         tamanho = ativar.Length;
         for (int i = 0; i < tamanho; i++)
         {
