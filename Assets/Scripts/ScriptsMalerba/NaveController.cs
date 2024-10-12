@@ -7,22 +7,14 @@ public class NaveController : MonoBehaviour
     public float moveSpeed = 100f; // movimento
     public float rotationSpeed = 200f; // rotação
 
-    void Update()
+    void FixedUpdate()
     {
-        // Movimenta a nave para frente (tecla W)
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
-        }
+        float moveHorizontal = Input.GetAxisRaw("Horizontal");                                                  // A/D ou Setas Esquerda/Direita ou Joystick
+        float moveVertical = Input.GetAxisRaw("Vertical");                                                      // W/S ou Setas Cima/Baixo ou Joystick
 
-        // Rotaciona a nave (A ou D)
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(-Vector3.forward * rotationSpeed * Time.deltaTime);
-        }
+        Vector3 moveDirection = new Vector3(moveHorizontal, moveVertical, 0f);
+        
+        transform.Translate(moveDirection * moveSpeed);
+        
     }
 }
