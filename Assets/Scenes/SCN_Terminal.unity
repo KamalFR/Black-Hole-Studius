@@ -3079,7 +3079,7 @@ GameObject:
   - component: {fileID: 1983638890}
   - component: {fileID: 1983638889}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3185,7 +3185,7 @@ GameObject:
   - component: {fileID: 2005718290}
   - component: {fileID: 2005718289}
   m_Layer: 0
-  m_Name: Trigger
+  m_Name: TerminalTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3724,7 +3724,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 315876533}
   - {fileID: 1369688911}
+  - {fileID: 1048588162}
   - {fileID: 387325355}
   - {fileID: 1983638892}
-  - {fileID: 1048588162}
   - {fileID: 2005718293}
