@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NaveController : MonoBehaviour
+public class NavesController : MonoBehaviour
 {
     public float moveSpeed = 100f; // movimento
     public float rotationSpeed = 200f; // rotação

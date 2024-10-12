@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ButtonBehave : MonoBehaviour
 {
-    private NaveController naveController;
+    private NavesController naveController;
     public bool canActive;
     // Start is called before the first frame update
     void Start()
     {
-        naveController = GameObject.FindWithTag("Nave").GetComponent<NaveController>();
+        naveController = GameObject.FindWithTag("Nave").GetComponent<NavesController>();
         Debug.Log(naveController);
     }
     //pode ativar o objeto
