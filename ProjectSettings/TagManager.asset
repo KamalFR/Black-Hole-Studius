@@ -9,6 +9,9 @@ TagManager:
   - esquerda
   - cima
   - Nave
+  - Green
+  - Yellow
+  - Red
   layers:
   - Default
   - TransparentFX
