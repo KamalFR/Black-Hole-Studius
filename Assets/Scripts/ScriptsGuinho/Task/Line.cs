@@ -15,7 +15,7 @@ public class Line : MonoBehaviour, IDragHandler, IEndDragHandler
     public Image lineImage;
 
     private Vector2 _startPosition;
-    private bool _isConnected = false;
+    [HideInInspector] public bool _isConnected = false;
 
     private void Start()
     {

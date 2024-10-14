@@ -5,11 +5,12 @@ using UnityEngine;
 public class MenuTrigger : MonoBehaviour
 {
     public string playerTag;
-    public KeyCode terminalButton;
-    public GameObject terminal;
+    public KeyCode menuButton;
+    public GameObject menu;
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == playerTag && Input.GetKeyDown(terminalButton) && terminal.activeInHierarchy == false) terminal.SetActive(true);
+        Debug.Log("Stay");
+        if (other.tag == playerTag && Input.GetKeyDown(menuButton) && menu.activeInHierarchy == false) menu.SetActive(true);
     }
 }

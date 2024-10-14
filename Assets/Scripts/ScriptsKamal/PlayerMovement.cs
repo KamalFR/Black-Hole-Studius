@@ -9,6 +9,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 10;
     private PlayerInputs input;
     private Rigidbody rb;
+
+    [Header("Guinho")]
+    public List<GameObject> menus;
+
     private void Awake()
     {
         input = new PlayerInputs();
@@ -46,6 +50,8 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
+        for(int i = 0; i < menus.Count; i++) if (menus[i].activeInHierarchy == true) return;
+
         if (Input.GetKey(KeyCode.W))
         {
             rb.velocity = transform.forward * speed;
