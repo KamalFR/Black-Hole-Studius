@@ -20,6 +20,7 @@ public class Line : MonoBehaviour, IDragHandler, IEndDragHandler
     private void Start()
     {
         _startPosition = head.position;
+        Cursor.visible = true;
     }
 
     void Update()
