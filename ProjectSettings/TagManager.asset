@@ -12,6 +12,7 @@ TagManager:
   - Green
   - Yellow
   - Red
+  - Botoes
   layers:
   - Default
   - TransparentFX
