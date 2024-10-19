@@ -13,6 +13,7 @@ TagManager:
   - Yellow
   - Red
   - Botoes
+  - Painel
   layers:
   - Default
   - TransparentFX
