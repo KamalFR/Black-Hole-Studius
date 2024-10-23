@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3575914582269481607}
   - component: {fileID: 6965780059322027053}
   m_Layer: 0
-  m_Name: FloorCriogenicRoom
+  m_Name: Floor4x6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
