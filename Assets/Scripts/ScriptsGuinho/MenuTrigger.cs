@@ -4,13 +4,27 @@ using UnityEngine;
 
 public class MenuTrigger : MonoBehaviour
 {
-    public string playerTag;
-    public KeyCode menuButton;
+    public string menuTag;
+    public float distance;
+    public bool isTask;
+    public Transform playerCamera;
+    public GameObject objToDestroy;
     public GameObject menu;
 
-    private void OnTriggerStay(Collider other)
+    private void Update()
     {
-        Debug.Log("Stay");
-        if (other.tag == playerTag && Input.GetKeyDown(menuButton) && menu.activeInHierarchy == false) menu.SetActive(true);
+        if (Physics.Raycast(playerCamera.position, EngineAmount.instance.transform.TransformDirection(Vector3.forward), out RaycastHit hit, distance))
+        {
+            if (hit.collider.tag == menuTag && Input.GetKeyDown(KeyCode.Mouse0) && !isTask)
+            {
+                menu.SetActive(true);
+            }
+
+            if (hit.collider.tag == menuTag && Input.GetKeyDown(KeyCode.Mouse0) && isTask && GameManager.instance._startLineTask)
+            {
+                menu.SetActive(true);
+                objToDestroy.SetActive(false);
+            }
+        }
     }
 }

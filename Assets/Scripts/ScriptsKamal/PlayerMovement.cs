@@ -50,7 +50,14 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        for(int i = 0; i < menus.Count; i++) if (menus[i].activeInHierarchy == true) return;
+        for (int i = 0; i < menus.Count; i++) 
+            if (menus[i].activeInHierarchy == true)
+            {
+                Cursor.visible = true;
+                return;
+            }
+
+        Cursor.visible = false;
 
         if (Input.GetKey(KeyCode.W))
         {

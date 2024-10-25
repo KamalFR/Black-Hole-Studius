@@ -6,14 +6,31 @@ public class EngineTask : MonoBehaviour
 {
     public float distance;
 
+    public Transform playerCamera;
+
     public List<GameObject> engines;
     public List<EngineAnimation> animations;
 
+    public void StartTask(int amount)
+    {
+        GameManager.instance._taskEngineToDo = true;
+
+        for(int i = 0; i < amount; i++)
+        {
+            engines[i].SetActive(false);
+        }
+
+        foreach (EngineAnimation anim in animations)
+        {
+            anim._canMove = false;
+        }
+    }
+
     private void Update()
     {
-        Debug.DrawRay(EngineAmount.instance.transform.position, EngineAmount.instance.transform.TransformDirection(Vector3.forward) * distance, Color.red);
+        Debug.DrawRay(playerCamera.position, EngineAmount.instance.transform.TransformDirection(Vector3.forward) * distance, Color.red);
 
-        if (Physics.Raycast(EngineAmount.instance.transform.position, EngineAmount.instance.transform.TransformDirection(Vector3.forward), out RaycastHit hit, distance))
+        if (Physics.Raycast(playerCamera.position, EngineAmount.instance.transform.TransformDirection(Vector3.forward), out RaycastHit hit, distance))
         {
             if (hit.collider.tag == "Painel" && Input.GetKeyDown(KeyCode.Mouse0) && EngineAmount.instance.amount > 0)
             {
@@ -35,9 +52,9 @@ public class EngineTask : MonoBehaviour
             if (engines[i].activeInHierarchy) actives++;
         }
 
-        if (actives == engines.Count)
+        if (actives == engines.Count) //Se entra aq significa que a task foi concluída
         {
-            //Se entra aq significa que a task foi concluída
+            GameManager.instance._taskEngineToDo = false;
             foreach (EngineAnimation anim in animations)
             {
                 anim._canMove = true;
