@@ -43,11 +43,11 @@ public class ActiveButtons : MonoBehaviour
                         naveController.movediraction = Vector3.forward;
                     }
                 }
-            }
-            else
-            {
-                naveController.isRotating = false;
-                naveController.movediraction = Vector3.zero;
+                else
+                {
+                    naveController.isRotating = false;
+                    naveController.movediraction = Vector3.zero;
+                }
             }
         }
     }
