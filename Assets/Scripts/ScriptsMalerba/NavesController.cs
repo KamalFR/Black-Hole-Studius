@@ -13,10 +13,10 @@ public class NavesController : MonoBehaviour
     {
         // verifica se o player se movimentou e qual a direção
         if(!isRotating){
-            transform.Translate(movediraction * moveSpeed);
+            transform.Translate(movediraction * moveSpeed * Time.deltaTime);
         }
         else{
-           transform.Rotate(movediraction * rotationSpeed);
+           transform.Rotate(movediraction * rotationSpeed * Time.deltaTime);
         }
     }
 

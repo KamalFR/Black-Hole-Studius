@@ -30,7 +30,7 @@ public class ActiveButtons : MonoBehaviour
                     if (hit.collider.gameObject.GetComponent<Button>().GetTipo() == EnumBotoes.Direita)
                     {
                         naveController.isRotating = true;
-                        naveController.movediraction = Vector3.forward;
+                        naveController.movediraction = -Vector3.forward;
                     }
                     if (hit.collider.gameObject.GetComponent<Button>().GetTipo() == EnumBotoes.Baixo)
                     {
@@ -40,7 +40,7 @@ public class ActiveButtons : MonoBehaviour
                     if (hit.collider.gameObject.GetComponent<Button>().GetTipo() == EnumBotoes.Esquerda)
                     {
                         naveController.isRotating = true;
-                        naveController.movediraction = -Vector3.forward;
+                        naveController.movediraction = Vector3.forward;
                     }
                 }
             }

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/Animations.meta
 guid: 41f1c52e880963c4097817738f8294df
+========
+guid: c3338878f66622243b20bcc77a76e6f7
+>>>>>>>> Stashed changes:Assets/3D Models.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
