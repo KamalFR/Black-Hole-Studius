@@ -32,7 +32,7 @@ public class EngineTask : MonoBehaviour
 
         if (Physics.Raycast(playerCamera.position, EngineAmount.instance.transform.TransformDirection(Vector3.forward), out RaycastHit hit, distance))
         {
-            if (hit.collider.tag == "Painel" && Input.GetKeyDown(KeyCode.Mouse0) && EngineAmount.instance.amount > 0)
+            if (hit.collider.tag == "Painel" && Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.E) && EngineAmount.instance.amount > 0)
             {
                 for (int i = 0; i < engines.Count; i++)
                 {

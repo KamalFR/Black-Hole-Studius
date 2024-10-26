@@ -5,10 +5,6 @@ using Luksguin;
 
 public class GameManager : Singleton<GameManager>
 {
-    public EngineTask engineTask;
-    public int missingEngines;
-
-    public GameObject winMenu;
     public GameObject loseMenu;
 
     [HideInInspector] public bool _taskEngineToDo;
@@ -16,39 +12,26 @@ public class GameManager : Singleton<GameManager>
 
     [HideInInspector] public bool _startLineTask;
 
-    private void Start()
+    public void StartEngineTask(EngineTask task, int amount)
     {
-        StartCoroutine(TheGameCoroutine());
+        StartCoroutine(EngineCoroutine(task, amount));
     }
 
-    IEnumerator TheGameCoroutine()
+    IEnumerator EngineCoroutine(EngineTask task, int amount)
     {
-        yield return new WaitForSeconds(3f);
-        Debug.Log("Começou");
-
-        engineTask.StartTask(missingEngines);
+        task.StartTask(amount);
 
         yield return new WaitForSeconds(25f);
 
-        if (_taskEngineToDo)
-        {
-            loseMenu.SetActive(true);
-            yield break;
-        }
-        Debug.Log("Primeira foi");
+        if(_taskEngineToDo) loseMenu.SetActive(true);
+    }
 
+    IEnumerator LinesCoroutine()
+    {
         _startLineTask = true;
-        _taskLinesToDo = true;
 
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(25f);
 
-        if (_taskLinesToDo)
-        {
-            loseMenu.SetActive(true);
-            yield break;
-        }
-        Debug.Log("Deu Bom");
-
-        winMenu.SetActive(true);
+        if (_taskLinesToDo) loseMenu.SetActive(true);
     }
 }
