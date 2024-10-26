@@ -14,6 +14,7 @@ public class TaskCompleted : MonoBehaviour
         if (tasks.Count == 0) //Se entrar aqui a task foi concluída
         {
             GameManager.instance._taskLinesToDo = false;
+
             menu.SetActive(false);
         }
 

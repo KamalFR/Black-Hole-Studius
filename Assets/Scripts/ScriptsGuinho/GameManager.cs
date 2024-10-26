@@ -28,7 +28,7 @@ public class GameManager : Singleton<GameManager>
 
         yield return new WaitForSeconds(25f);
 
-        if(_taskEngineToDo) loseMenu.SetActive(true);
+        if (_taskEngineToDo) loseMenu.SetActive(true);
     }
 
     IEnumerator LinesCoroutine()

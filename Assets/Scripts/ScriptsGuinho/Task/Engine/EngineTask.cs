@@ -55,6 +55,7 @@ public class EngineTask : MonoBehaviour
         if (actives == engines.Count) //Se entra aq significa que a task foi concluída
         {
             GameManager.instance._taskEngineToDo = false;
+
             foreach (EngineAnimation anim in animations)
             {
                 anim._canMove = true;
