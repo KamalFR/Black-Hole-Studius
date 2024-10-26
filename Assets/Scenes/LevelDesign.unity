@@ -51519,8 +51519,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winMenu: {fileID: 591147372}
   isTask: 1
-  engine: 0
-  line: 1
+  engine: 1
+  line: 0
   missingEngines: 2
   engineTask: {fileID: 174526773}
 --- !u!58 &1670159249
@@ -67371,11 +67371,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2641574413248307757, guid: ec25499988d803241b7f33e9d360ff6e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.4
+      value: 2.39
       objectReference: {fileID: 0}
     - target: {fileID: 2641574413248307757, guid: ec25499988d803241b7f33e9d360ff6e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.88
+      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 4677819154632104741, guid: ec25499988d803241b7f33e9d360ff6e, type: 3}
       propertyPath: m_Sprite

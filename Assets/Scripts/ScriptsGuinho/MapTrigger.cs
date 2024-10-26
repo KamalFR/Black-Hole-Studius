@@ -31,7 +31,7 @@ public class MapTrigger : MonoBehaviour
         else
         {
             if (engine) GameManager.instance.StartEngineTask(engineTask, missingEngines);
-            if (line) GameManager.instance._startLineTask = true;
+            if (line) GameManager.instance.StartLinesTask();
         }
 
         Destroy(gameObject);

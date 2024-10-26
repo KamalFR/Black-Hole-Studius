@@ -17,6 +17,11 @@ public class GameManager : Singleton<GameManager>
         StartCoroutine(EngineCoroutine(task, amount));
     }
 
+    public void StartLinesTask()
+    {
+        StartCoroutine(LinesCoroutine());
+    }
+
     IEnumerator EngineCoroutine(EngineTask task, int amount)
     {
         task.StartTask(amount);
@@ -29,8 +34,10 @@ public class GameManager : Singleton<GameManager>
     IEnumerator LinesCoroutine()
     {
         _startLineTask = true;
+        _taskLinesToDo = true;
 
         yield return new WaitForSeconds(25f);
+        Debug.Log("Cabou fi");
 
         if (_taskLinesToDo) loseMenu.SetActive(true);
     }
