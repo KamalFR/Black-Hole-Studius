@@ -115,10 +115,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8583005637717738297}
   - component: {fileID: 6910228518651269232}
-  - component: {fileID: 6505144850016318524}
   m_Layer: 0
   m_Name: PFB_EngineCollectable
-  m_TagString: Untagged
+  m_TagString: Engine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,15 +159,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6976414, y: 0.988962, z: 0.68486595}
   m_Center: {x: 0.002251625, y: 0.019408196, z: -0.0000009536743}
---- !u!114 &6505144850016318524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2138060872945611702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b6fc0f5f2343804cb9207ad4b8cc734, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

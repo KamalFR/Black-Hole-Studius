@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class MenuTrigger : MonoBehaviour
 {
+    public string menuTag;
     public float distance;
     public bool isTask;
     public Transform playerCamera;
     public GameObject objToDestroy;
-
-    [Header("IGNORAR CASO NÃO SEJA  O TERMINAL!!!")]
-    public GameObject terminal;
-    public string menuTag;
+    public GameObject menu;
 
     private void Update()
     {
@@ -19,12 +17,12 @@ public class MenuTrigger : MonoBehaviour
         {
             if (hit.collider.tag == menuTag && (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.E)) && !isTask)
             {
-                terminal.SetActive(true);
+                menu.SetActive(true);
             }
 
-            if (hit.collider.tag == "LinesPainel" + GameManager.instance._indexLineTask && (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.E)) && isTask && GameManager.instance._indexLineTask != -1)
+            if (hit.collider.tag == menuTag && (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.E)) && isTask && GameManager.instance._startLineTask)
             {
-                GameManager.instance.linesTasks[GameManager.instance._indexLineTask].SetActive(true);
+                menu.SetActive(true);
                 objToDestroy.SetActive(false);
             }
         }

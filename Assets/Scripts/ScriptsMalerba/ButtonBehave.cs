@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ButtonBehave : MonoBehaviour
-{/*
+{/*=
     private NavesController naveController;
     public bool canActive;
     // Start is called before the first frame update

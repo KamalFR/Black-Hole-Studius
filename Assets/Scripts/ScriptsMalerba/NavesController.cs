@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class NavesController : MonoBehaviour
 {
-    public float moveSpeed; // movimento
-    public float rotationSpeed; // rotação
-    [HideInInspector] public Vector3 movediraction;
-    [HideInInspector] public bool isRotating;
+    public float moveSpeed = 100f; // movimento
+    public float rotationSpeed = 200f; // rotação
+    public Vector3 movediraction;
+    public bool isRotating;
 
     void FixedUpdate() // Update que é fixado entre FPS, não é afetado se o PC é batata ou nave espacial
     {
-        if (GameManager.instance._taskEngineToDo || GameManager.instance._taskLinesToDo) return;
-
         // verifica se o player se movimentou e qual a direção
         if(!isRotating){
             transform.Translate(movediraction * moveSpeed * Time.deltaTime);
