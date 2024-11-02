@@ -50,7 +50,6 @@ public class GameManager : Singleton<GameManager>
         _taskLinesToDo = true;
 
         yield return new WaitForSeconds(25f);
-        Debug.Log("Cabou fi");
 
         if (_taskLinesToDo) loseMenu.SetActive(true);
     }

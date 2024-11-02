@@ -19,6 +19,10 @@ TagManager:
   - LinesPainel1
   - LinesPainel0
   - TimeKill
+  - LinesPainel2
+  - LinesPainel3
+  - LinesPainel4
+  - LinesPainel5
   layers:
   - Default
   - TransparentFX

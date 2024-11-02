@@ -19,7 +19,7 @@ public class TaskCompleted : MonoBehaviour
             menu.SetActive(false);
         }
 
-        for (int i = 0; i < tasks.Count; i++)
+        for(int i = 0; i < tasks.Count; i++)
         {
             if (tasks[i]._isConnected == true) tasks.Remove(tasks[i]);
         }
