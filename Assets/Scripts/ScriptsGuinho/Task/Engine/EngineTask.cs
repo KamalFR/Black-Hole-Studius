@@ -7,12 +7,14 @@ public class EngineTask : MonoBehaviour
     public float distance;
 
     public Transform playerCamera;
+    public AudioSource alarme;
 
     public List<GameObject> engines;
     public List<EngineAnimation> animations;
 
     public void StartTask(int amount)
     {
+        alarme.Play();
         GameManager.instance._taskEngineToDo = true;
 
         for(int i = 0; i < amount; i++)
@@ -54,6 +56,7 @@ public class EngineTask : MonoBehaviour
 
         if (actives == engines.Count) //Se entra aq significa que a task foi concluída
         {
+            alarme.Pause();
             GameManager.instance._taskEngineToDo = false;
 
             foreach(GameObject obj in GameManager.instance.enginesCollectables)

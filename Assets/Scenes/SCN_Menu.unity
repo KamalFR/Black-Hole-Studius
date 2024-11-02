@@ -962,7 +962,7 @@ GameObject:
   - component: {fileID: 962643803}
   - component: {fileID: 962643802}
   m_Layer: 5
-  m_Name: Footsteps
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1007,7 +1007,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: FOOTSTEPS
+  m_text: MONSTERS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1283,7 +1283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 6bd771d576f6443478ccd50f08b9f195, type: 2}
-  floatParam: VolumeFootsteps
+  floatParam: VolumeMonsters
 --- !u!114 &1339026720
 MonoBehaviour:
   m_ObjectHideFlags: 0
