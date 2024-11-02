@@ -50362,7 +50362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe53f7e6a325c6d4397b124056c55452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 2.6
   menus:
   - {fileID: 133118587}
   - {fileID: 360483178}
@@ -57968,11 +57968,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2641574413248307757, guid: ec25499988d803241b7f33e9d360ff6e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.28
+      value: 0.392
       objectReference: {fileID: 0}
     - target: {fileID: 2641574413248307757, guid: ec25499988d803241b7f33e9d360ff6e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.52
+      value: -2.276
       objectReference: {fileID: 0}
     - target: {fileID: 4677819154632104741, guid: ec25499988d803241b7f33e9d360ff6e, type: 3}
       propertyPath: m_Sprite

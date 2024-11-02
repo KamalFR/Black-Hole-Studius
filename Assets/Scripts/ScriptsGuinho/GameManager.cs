@@ -39,7 +39,7 @@ public class GameManager : Singleton<GameManager>
             obj.SetActive(true);
         }
 
-        yield return new WaitForSeconds(25f);
+        yield return new WaitForSeconds(45f);
 
         if (_taskEngineToDo) loseMenu.SetActive(true);
     }
@@ -49,7 +49,7 @@ public class GameManager : Singleton<GameManager>
         _indexLineTask = index;
         _taskLinesToDo = true;
 
-        yield return new WaitForSeconds(25f);
+        yield return new WaitForSeconds(45f);
 
         if (_taskLinesToDo) loseMenu.SetActive(true);
     }
