@@ -56,6 +56,11 @@ public class EngineTask : MonoBehaviour
         {
             GameManager.instance._taskEngineToDo = false;
 
+            foreach(GameObject obj in GameManager.instance.enginesCollectables)
+            {
+                obj.SetActive(false);
+            }
+
             foreach (EngineAnimation anim in animations)
             {
                 anim._canMove = true;

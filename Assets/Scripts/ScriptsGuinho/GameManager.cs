@@ -8,6 +8,7 @@ public class GameManager : Singleton<GameManager>
     public GameObject loseMenu;
 
     public List<GameObject> linesTasks;
+    public List<GameObject> enginesCollectables;
 
     [HideInInspector] public bool _taskEngineToDo;
     [HideInInspector] public bool _taskLinesToDo;
@@ -32,6 +33,11 @@ public class GameManager : Singleton<GameManager>
     IEnumerator EngineCoroutine(EngineTask task, int amount)
     {
         task.StartTask(amount);
+
+        foreach(GameObject obj in enginesCollectables)
+        {
+            obj.SetActive(true);
+        }
 
         yield return new WaitForSeconds(25f);
 
