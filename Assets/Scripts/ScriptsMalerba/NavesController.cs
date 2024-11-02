@@ -11,8 +11,10 @@ public class NavesController : MonoBehaviour
 
     void FixedUpdate() // Update que é fixado entre FPS, não é afetado se o PC é batata ou nave espacial
     {
+        if (GameManager.instance._taskEngineToDo || GameManager.instance._taskLinesToDo) return;
         // verifica se o player se movimentou e qual a direção
-        if(!isRotating){
+
+        if (!isRotating){
             transform.Translate(movediraction * moveSpeed * Time.deltaTime);
         }
         else{

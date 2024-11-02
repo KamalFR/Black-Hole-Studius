@@ -111,7 +111,7 @@ Transform:
   m_GameObject: {fileID: 8252683173674711889}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -12}
+  m_LocalPosition: {x: 0, y: 0, z: -0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -150,9 +150,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb2c4abb247aebf4cbe7edcfc68535b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuTag: LinesPainel
   distance: 3
   isTask: 1
   playerCamera: {fileID: 0}
   objToDestroy: {fileID: 8252683173674711889}
-  menu: {fileID: 0}
+  terminal: {fileID: 0}
+  menuTag: LinesPainel

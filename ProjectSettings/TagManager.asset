@@ -14,9 +14,11 @@ TagManager:
   - Red
   - Botoes
   - Painel
-  - LinesPainel
   - TerminalPainel
   - Engine
+  - LinesPainel1
+  - LinesPainel0
+  - TimeKill
   layers:
   - Default
   - TransparentFX

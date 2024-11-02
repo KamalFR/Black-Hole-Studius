@@ -24,14 +24,14 @@ public class MapTrigger : MonoBehaviour
     {
         if (!collision.CompareTag("Nave")) return;
 
-        if(!isTask)
+        if (!isTask)
         {
             winMenu.SetActive(true);
         }
         else
         {
             if (engine) GameManager.instance.StartEngineTask(engineTask, missingEngines);
-            if (line) GameManager.instance.StartLinesTask();
+            if (line) GameManager.instance.StartLinesTask(Random.Range(0, GameManager.instance.linesTasks.Count));
         }
 
         Destroy(gameObject);
