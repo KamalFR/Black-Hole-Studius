@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Guinho")]
     public List<GameObject> menus;
+    public Animator myAnimator;
 
     private void Awake()
     {
@@ -61,20 +62,26 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
+            myAnimator.speed = 1;
             rb.velocity = transform.forward * speed;
         }
         if (Input.GetKey(KeyCode.S))
         {
+            myAnimator.speed = 1;
             rb.velocity = transform.forward * speed * (-1);
         }
         if (Input.GetKey(KeyCode.D))
         {
+            myAnimator.speed = 1;
             rb.velocity = transform.right * speed;
         }
         if (Input.GetKey(KeyCode.A))
         {
+            myAnimator.speed = 1;
             rb.velocity = transform.right * speed * (-1);
         }
+
+        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D)) myAnimator.speed = 0;
     }
 }
     
