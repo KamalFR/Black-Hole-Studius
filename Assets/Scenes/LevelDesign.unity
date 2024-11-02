@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0014821443, g: 0.001356025, b: 0.0012915672, a: 1}
+  m_IndirectSpecularColor: {r: 0.0014785795, g: 0.0013591028, b: 0.0012890887, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -55898,6 +55898,18 @@ PrefabInstance:
     - target: {fileID: 4752092021601040238, guid: 40af629722aeb7a4a99b6a7fddff029c, type: 3}
       propertyPath: m_Name
       value: Painel_Controle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384337202699251156, guid: 40af629722aeb7a4a99b6a7fddff029c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384337202699251156, guid: 40af629722aeb7a4a99b6a7fddff029c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384337202699251156, guid: 40af629722aeb7a4a99b6a7fddff029c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5384337202699251156, guid: 40af629722aeb7a4a99b6a7fddff029c, type: 3}
       propertyPath: m_LocalPosition.x
