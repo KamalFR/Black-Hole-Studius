@@ -7,19 +7,26 @@ public class GameManager : Singleton<GameManager>
 {
     public GameObject loseMenu;
 
+    public List<GameObject> linesTasks;
+
     [HideInInspector] public bool _taskEngineToDo;
     [HideInInspector] public bool _taskLinesToDo;
 
-    [HideInInspector] public bool _startLineTask;
+    [HideInInspector] public int _indexLineTask;
+
+    private void Start()
+    {
+        _indexLineTask = -1;
+    }
 
     public void StartEngineTask(EngineTask task, int amount)
     {
         StartCoroutine(EngineCoroutine(task, amount));
     }
 
-    public void StartLinesTask()
+    public void StartLinesTask(int index)
     {
-        StartCoroutine(LinesCoroutine());
+        StartCoroutine(LinesCoroutine(index));
     }
 
     IEnumerator EngineCoroutine(EngineTask task, int amount)
@@ -31,9 +38,9 @@ public class GameManager : Singleton<GameManager>
         if (_taskEngineToDo) loseMenu.SetActive(true);
     }
 
-    IEnumerator LinesCoroutine()
+    IEnumerator LinesCoroutine(int index)
     {
-        _startLineTask = true;
+        _indexLineTask = index;
         _taskLinesToDo = true;
 
         yield return new WaitForSeconds(25f);
