@@ -14,8 +14,9 @@ TagManager:
   - Red
   - Botoes
   - Painel
-  - LinesPainel
   - TerminalPainel
+  - LinesPainel0
+  - LinesPainel1
   layers:
   - Default
   - TransparentFX
