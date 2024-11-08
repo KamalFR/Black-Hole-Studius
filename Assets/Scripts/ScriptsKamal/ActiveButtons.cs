@@ -19,7 +19,6 @@ public class ActiveButtons : MonoBehaviour
         {
             if(hit.collider.tag == "Botoes")
             {
-                Debug.Log("fawhbiawfhbifb");
                 if (Input.GetKey(KeyCode.E))
                 {
                     if (hit.collider.gameObject.GetComponent<Button>().GetTipo() == EnumBotoes.Cima)
@@ -48,6 +47,11 @@ public class ActiveButtons : MonoBehaviour
                     naveController.isRotating = false;
                     naveController.movediraction = Vector3.zero;
                 }
+            }
+            else
+            {
+                naveController.isRotating = false;
+                naveController.movediraction = Vector3.zero;
             }
         }
     }

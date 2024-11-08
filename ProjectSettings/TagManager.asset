@@ -23,6 +23,7 @@ TagManager:
   - LinesPainel3
   - LinesPainel4
   - LinesPainel5
+  - Tela
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - NotPixel
   - 
   - 
   - 
