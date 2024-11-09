@@ -10,10 +10,13 @@ public class MapTrigger : MonoBehaviour
     [Header("IGNORAR CASO NÃO SEJA TASK!!!")]
     public bool engine;
     public bool line;
+    public bool oxigen;
 
     public int missingEngines;
 
     public EngineTask engineTask;
+    public MenuTrigger linesTask;
+    public MenuTrigger OxigenTask;
 
     private void Start()
     {
@@ -32,6 +35,7 @@ public class MapTrigger : MonoBehaviour
         {
             if (engine) GameManager.instance.StartEngineTask(engineTask, missingEngines);
             if (line) GameManager.instance.StartLinesTask(Random.Range(0, GameManager.instance.linesTasks.Count));
+            if (oxigen) GameManager.instance.StartOxigenTask();
         }
 
         Destroy(gameObject);

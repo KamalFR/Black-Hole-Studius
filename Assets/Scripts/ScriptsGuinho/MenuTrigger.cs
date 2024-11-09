@@ -8,6 +8,7 @@ public class MenuTrigger : MonoBehaviour
     public bool isTask;
     public Transform playerCamera;
     public GameObject objToDestroy;
+    public GameObject canvas;
 
     [Header("IGNORAR CASO NÃO SEJA  O TERMINAL!!!")]
     public GameObject terminal;
@@ -22,10 +23,14 @@ public class MenuTrigger : MonoBehaviour
                 terminal.SetActive(true);
             }
 
-            if (hit.collider.tag == "LinesPainel" + GameManager.instance._indexLineTask && (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.E)) && isTask && GameManager.instance._indexLineTask != -1)
+            if ((hit.collider.tag == "LinesPainel") && (GameManager.instance.GetTeste()) && ((Input.GetKeyDown(KeyCode.Mouse0)) || Input.GetKeyDown(KeyCode.E)))
             {
-                GameManager.instance.linesTasks[GameManager.instance._indexLineTask].SetActive(true);
+                hit.collider.GetComponent<MenuTrigger>().canvas.SetActive(true);
                 objToDestroy.SetActive(false);
+            }
+            if ((hit.collider.tag == "TimeKill") && (GameManager.instance._taskOxigenToDo) && ((Input.GetKeyDown(KeyCode.Mouse0)) || (Input.GetKeyDown(KeyCode.E))))
+            {
+                hit.collider.GetComponent<MenuTrigger>().canvas.SetActive(true);
             }
         }
     }

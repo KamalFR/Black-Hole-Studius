@@ -94,7 +94,7 @@ public class TimingGame : MonoBehaviour
 
     void CompleteTask()
     {
-        Debug.Log("Task Complete!");
+        GameManager.instance._taskOxigenToDo = false;
         taskCanvas.SetActive(false);
     }
 }

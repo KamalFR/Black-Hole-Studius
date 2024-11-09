@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: see files
+  m_text: Arquivos
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -281,7 +281,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "vamo v\xEA oq os cabra v\xE3o inventar pra encher aq"
+  m_text: "A  rota ja est\xE1 planejada, o nave est\xE1 no piloto autom\xE1tico.\r\nEsse
+    terminal ser\xE1 utilizado para receber mensagens para ser visto no futuro para
+    saber o que est\xE1 acontecendo no mundo.\r\nA revolu\xE7\xE3o est\xE1 em suas
+    m\xE3os, conmfiamos em voc\xEAs!\r\n\r\nGalaxy Launcher Enterprises.\r\nAno 4132."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -572,7 +575,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "vamo v\xEA oq os cabra v\xE3o inventar pra encher aq"
+  m_text: "Miss\xE3o Coloniza\xE7\xE3o Galaxia-7Z1K\r\n\r\nForam selecionados 4 tripulantes
+    para a explora\xE7\xE3o de uma nova gal\xE1xia,\r\no planeta PZ2K \xE9 habitavel.\r\nToda
+    a rota ja foi planejada, nossos tripulantes est\xE3o criogenizados e chegar\xE3o
+    em seguran\xE7a.\r\n\r\nGalaxy Launcher Enterprises.\r\nAno 4132."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1054,7 +1060,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: dont open
+  m_text: observacoes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1117,7 +1123,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -32.326996, y: 0, z: -12.354095, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1425,7 +1431,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "vamo v\xEA oq os cabra v\xE3o inventar pra encher aq"
+  m_text: "ATEN\xC7\xC3O!!!!\r\n\r\nSe alguem ler essa mensagem, saiba que n\xE3o
+    era para ser lido.\r\nUm TCRB est\xE1 acontecendo, voc\xEAs foram puxados para
+    uma colis\xE3o de dois s\xF3is,\r\na unica maneira de voltar a rota \xE9 pelo
+    controle manual, o controle da nave a direita do terminal.\r\nChegue at\xE9 o
+    proximo ponto de salto de gal\xE1xia antes que voc\xEAs sejam engolidos.\r\n\r\nGalaxy
+    Launcher Enterprises.\r\nAno 4146."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1509,7 +1520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5725780591377231720
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1547,7 +1558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6149413941864812611
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1939,7 +1950,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'story
+  m_text: 'missao
 
 '
   m_isRightToLeft: 0
@@ -2525,7 +2536,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: secret
+  m_text: protocolTCRB
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2588,7 +2599,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -19.134338, y: 0, z: -29.90747, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2764,7 +2775,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4851002734478766542
 RectTransform:
   m_ObjectHideFlags: 0

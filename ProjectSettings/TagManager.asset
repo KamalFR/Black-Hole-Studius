@@ -24,6 +24,7 @@ TagManager:
   - LinesPainel4
   - LinesPainel5
   - Tela
+  - LinesPainel
   layers:
   - Default
   - TransparentFX
