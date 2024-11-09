@@ -1116,6 +1116,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1302097763}
     m_Modifications:
+    - target: {fileID: 349870645538391228, guid: 97273086c54540747813319bd67adbb3, type: 3}
+      propertyPath: m_text
+      value: 'missao
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 649910411881244743, guid: 97273086c54540747813319bd67adbb3, type: 3}
+      propertyPath: m_text
+      value: observacoes
+      objectReference: {fileID: 0}
     - target: {fileID: 1648202783065118944, guid: 97273086c54540747813319bd67adbb3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1125,16 +1135,39 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1648202783065118944, guid: 97273086c54540747813319bd67adbb3, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 206.872
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648202783065118944, guid: 97273086c54540747813319bd67adbb3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 532.6828
       objectReference: {fileID: 0}
     - target: {fileID: 1648202783065118944, guid: 97273086c54540747813319bd67adbb3, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2465820545393748231, guid: 97273086c54540747813319bd67adbb3, type: 3}
+      propertyPath: m_text
+      value: protocolTCRB
+      objectReference: {fileID: 0}
+    - target: {fileID: 3295538657349142664, guid: 97273086c54540747813319bd67adbb3, type: 3}
+      propertyPath: m_text
+      value: "Miss\xE3o Coloniza\xE7\xE3o Galaxia-7Z1K\n\nForam selecionados 4 tripulantes
+        para a explora\xE7\xE3o de uma nova gal\xE1xia,\no planeta PZ2K \xE9 habitavel.\nToda
+        a rota ja foi planejada, nossos tripulantes est\xE3o criogenizados e chegar\xE3o
+        em seguran\xE7a.\n\nGalaxy Launcher Enterprises.\nAno 4132.\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783206142688537934, guid: 97273086c54540747813319bd67adbb3, type: 3}
+      propertyPath: m_text
+      value: "A  rota ja est\xE1 planejada, o nave est\xE1 no piloto autom\xE1tico.\nEsse
+        terminal ser\xE1 utilizado para receber mensagens para ser visto no futuro
+        para saber o que est\xE1 acontecendo no mundo.\nA revolu\xE7\xE3o est\xE1
+        em suas m\xE3os, conmfiamos em voc\xEAs!\n\nGalaxy Launcher Enterprises.\nAno
+        4132."
+      objectReference: {fileID: 0}
     - target: {fileID: 4150710293025486002, guid: 97273086c54540747813319bd67adbb3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4851002734478766542, guid: 97273086c54540747813319bd67adbb3, type: 3}
       propertyPath: m_Pivot.x
@@ -1216,6 +1249,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4864217826930692481, guid: 97273086c54540747813319bd67adbb3, type: 3}
+      propertyPath: m_text
+      value: "ATEN\xC7\xC3O!!!!\n\nSe alguem ler essa mensagem, saiba que n\xE3o
+        era para ser lido.\nUm TCRB est\xE1 acontecendo, voc\xEAs foram puxados para
+        uma colis\xE3o de dois s\xF3is,\na unica maneira de voltar a rota \xE9 pelo
+        controle manual, o controle da nave a direita do terminal.\nChegue at\xE9
+        o proximo ponto de salto de gal\xE1xia antes que voc\xEAs sejam engolidos.\n\nGalaxy
+        Launcher Enterprises.\nAno 4146.\n"
+      objectReference: {fileID: 0}
     - target: {fileID: 5384530894882992813, guid: 97273086c54540747813319bd67adbb3, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1245,8 +1287,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7957985780327784692, guid: 97273086c54540747813319bd67adbb3, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 179.1597
+      objectReference: {fileID: 0}
+    - target: {fileID: 7957985780327784692, guid: 97273086c54540747813319bd67adbb3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 289.66693
       objectReference: {fileID: 0}
     - target: {fileID: 7957985780327784692, guid: 97273086c54540747813319bd67adbb3, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -58108,7 +58154,7 @@ Transform:
   m_GameObject: {fileID: 2134179801}
   serializedVersion: 2
   m_LocalRotation: {x: 0.71016854, y: -0, z: -0, w: 0.7040318}
-  m_LocalPosition: {x: -0.197, y: 2.133, z: 0.08}
+  m_LocalPosition: {x: -0.197, y: 2.122, z: 0.08}
   m_LocalScale: {x: 0.37968206, y: 0.89737755, z: 2.7464757}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58130,7 +58176,7 @@ MonoBehaviour:
   isTask: 0
   playerCamera: {fileID: 784642749}
   objToDestroy: {fileID: 0}
-  terminal: {fileID: 0}
+  terminal: {fileID: 133118587}
   menuTag: TerminalPainel
 --- !u!65 &2134179805
 BoxCollider:
@@ -58147,7 +58193,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
