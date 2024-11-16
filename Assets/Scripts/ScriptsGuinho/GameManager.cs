@@ -2,38 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Luksguin;
+using TMPro;
 
 public class GameManager : Singleton<GameManager>
 {
     public GameObject loseMenu;
 
+    public GameObject gameObjectAlarm;
+    public TextMeshProUGUI tmpAlarm;
+    public string textLinesAlarm;
+    public string textEngineAlarm;
+
     public List<GameObject> linesTasks;
     public List<GameObject> enginesCollectables;
 
     [HideInInspector] public bool _taskEngineToDo;
-    [HideInInspector] private bool _taskLinesToDo;
     [HideInInspector] public bool _taskOxigenToDo;
-
-    //public int _indexLineTask;
+    [HideInInspector] public int _indexLineTask;
 
     private void Start()
     {
-        //_indexLineTask = -1;
+        _indexLineTask = -1;
         _taskEngineToDo = false;
-        _taskLinesToDo = false;
         _taskOxigenToDo = false;
     }
 
     public void StartEngineTask(EngineTask task, int amount)
     {
         StartCoroutine(EngineCoroutine(task, amount));
+        StartCoroutine(TextCoroutine());
     }
 
     public void StartLinesTask(int index)
     {
-        _taskLinesToDo = true;
         StartCoroutine(LinesCoroutine(index));
+        StartCoroutine(TextCoroutine());
     }
+
     public void StartOxigenTask()
     {
         _taskOxigenToDo = true;
@@ -42,9 +47,11 @@ public class GameManager : Singleton<GameManager>
 
     IEnumerator EngineCoroutine(EngineTask task, int amount)
     {
+        tmpAlarm.text = textEngineAlarm;
+
         task.StartTask(amount);
 
-        foreach(GameObject obj in enginesCollectables)
+        foreach (GameObject obj in enginesCollectables)
         {
             obj.SetActive(true);
         }
@@ -56,26 +63,38 @@ public class GameManager : Singleton<GameManager>
 
     IEnumerator LinesCoroutine(int index)
     {
-        //_indexLineTask = index;
-        
+        _indexLineTask = index;
+        tmpAlarm.text = textLinesAlarm + _indexLineTask;
 
         yield return new WaitForSeconds(75f);
 
-        if (_taskLinesToDo) loseMenu.SetActive(true);
+        if (_indexLineTask != -1) loseMenu.SetActive(true);
     }
     IEnumerator OxigenCoroutine()
     {
-        _taskLinesToDo = false;
+        //_taskLinesToDo = false;
         yield return new WaitForSeconds(75f);
 
         if (_taskOxigenToDo) loseMenu.SetActive(true);
     }
-    public bool GetTeste()
+
+    IEnumerator TextCoroutine()
+    {
+        while (_indexLineTask != -1 || _taskEngineToDo)
+        {
+            gameObjectAlarm.SetActive(true);
+            yield return new WaitForSeconds(1f);
+            gameObjectAlarm.SetActive(false);
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
+    /*public bool GetTeste()
     {
         return _taskLinesToDo;
     }
     public void SetTest(bool t)
     {
         _taskLinesToDo = t;
-    }
+    }*/
 }

@@ -11,9 +11,9 @@ public class NavesController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if ((GameManager.instance._taskEngineToDo) || (GameManager.instance.GetTeste())||(GameManager.instance._taskOxigenToDo)) return;
-        // verifica se o player se movimentou e qual a direção
+        if (GameManager.instance._taskEngineToDo || GameManager.instance._indexLineTask != -1 || GameManager.instance._taskOxigenToDo) return;
 
+        // verifica se o player se movimentou e qual a direção
         if (!isRotating){
             transform.Translate(movediraction * moveSpeed * Time.deltaTime);
         }
