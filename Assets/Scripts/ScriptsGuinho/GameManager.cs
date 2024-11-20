@@ -51,9 +51,12 @@ public class GameManager : Singleton<GameManager>
 
         task.StartTask(amount);
 
-        foreach (GameObject obj in enginesCollectables)
+        for(int i = 0; i < amount; i++)
         {
-            obj.SetActive(true);
+            var index = Random.Range(0, enginesCollectables.Count);
+            
+            if (enginesCollectables[index].activeInHierarchy) i--;
+            else enginesCollectables[index].SetActive(true);
         }
 
         yield return new WaitForSeconds(75f);
