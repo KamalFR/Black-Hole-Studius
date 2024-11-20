@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TimingGame : MonoBehaviour
 {
     public Image gradientBar; // Referência à imagem da barra de gradiente
     public Image movingLine; // Referência à linha móvel
     public GameObject stopButton; // Botão para registrar a pontuação
-    public Text scoreText; // Texto da pontuação
+    public TextMeshProUGUI scoreText; // Texto da pontuação
     public GameObject taskCanvas; // Canvas da task
     public float speed = 100f; // Velocidade de movimento da linha
     public int requiredScore = 80; // Pontuação necessária para completar a task

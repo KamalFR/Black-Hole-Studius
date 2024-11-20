@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Luksguin;
 
-public class EngineTask : MonoBehaviour
+public class EngineTask : Singleton<EngineTask>
 {
     public float distance;
+    public int missingEngines;
 
     public Transform playerCamera;
     public AudioSource alarme;
@@ -12,12 +14,12 @@ public class EngineTask : MonoBehaviour
     public List<GameObject> engines;
     public List<EngineAnimation> animations;
 
-    public void StartTask(int amount)
+    public void StartTask()
     {
         alarme.Play();
         GameManager.instance._taskEngineToDo = true;
 
-        for(int i = 0; i < amount; i++)
+        for(int i = 0; i < missingEngines; i++)
         {
             engines[i].SetActive(false);
         }
