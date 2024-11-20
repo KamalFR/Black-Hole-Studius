@@ -4712,7 +4712,7 @@ PrefabInstance:
     - target: {fileID: 6484503716724977144, guid: 65a72fa780cc45e4caedf0d134d684bf, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 7c68c5c728ab3694fa93a992cc777193, type: 3}
+      objectReference: {fileID: 8300000, guid: e02b2517d5897654e93e4c903e6de9ba, type: 3}
     - target: {fileID: 6484503716724977144, guid: 65a72fa780cc45e4caedf0d134d684bf, type: 3}
       propertyPath: rolloffMode
       value: 0
@@ -4845,6 +4845,10 @@ PrefabInstance:
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 784642749}
+    - target: {fileID: 8405044186190385797, guid: 65a72fa780cc45e4caedf0d134d684bf, type: 3}
+      propertyPath: missingEngines
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8803093951157497192, guid: 65a72fa780cc45e4caedf0d134d684bf, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -7668,7 +7672,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 3
-  isTask: 1
+  isTerminal: 0
+  isGas: 1
   playerCamera: {fileID: 784642749}
   gasTask: {fileID: 760310254}
   terminal: {fileID: 0}
@@ -10424,7 +10429,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 3
-  isTask: 1
+  isTerminal: 0
+  isGas: 0
   playerCamera: {fileID: 784642749}
   gasTask: {fileID: 0}
   terminal: {fileID: 0}
@@ -29391,7 +29397,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 3
-  isTask: 1
+  isTerminal: 0
+  isGas: 0
   playerCamera: {fileID: 784642749}
   gasTask: {fileID: 0}
   terminal: {fileID: 0}
@@ -38435,7 +38442,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 3
-  isTask: 1
+  isTerminal: 0
+  isGas: 0
   playerCamera: {fileID: 784642749}
   gasTask: {fileID: 0}
   terminal: {fileID: 0}
@@ -55489,7 +55497,7 @@ MonoBehaviour:
   loseMenu: {fileID: 2032085697}
   gameObjectAlarm: {fileID: 1579477068}
   tmpAlarm: {fileID: 1579477071}
-  textLinesAlarm: "ALGO ESTRANHO NA CAIXA DE ENERGIA N\xBA "
+  textLinesAlarm: "ALGO ESTRANHO NA CAIXA DE ENERGIA N\xBA 0"
   textEngineAlarm: "MOTOR DESTRU\xCDDO... VOC\xCA SER\xC1 O PR\xD3XIMO"
   textGasAlarm: "OXIG\xCANIO CR\xCDTICO... VOC\xCA MORRER\xC1 EM BREVE"
   linesTasks:
@@ -56501,7 +56509,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 3
-  isTask: 1
+  isTerminal: 0
+  isGas: 0
   playerCamera: {fileID: 784642749}
   gasTask: {fileID: 0}
   terminal: {fileID: 0}
@@ -59152,7 +59161,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 3
-  isTask: 1
+  isTerminal: 0
+  isGas: 0
   playerCamera: {fileID: 784642749}
   gasTask: {fileID: 0}
   terminal: {fileID: 0}
@@ -61339,7 +61349,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 3
-  isTask: 0
+  isTerminal: 1
+  isGas: 0
   playerCamera: {fileID: 784642749}
   gasTask: {fileID: 0}
   terminal: {fileID: 133118587}
@@ -61704,7 +61715,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 3
-  isTask: 1
+  isTerminal: 0
+  isGas: 0
   playerCamera: {fileID: 784642749}
   gasTask: {fileID: 0}
   terminal: {fileID: 0}
