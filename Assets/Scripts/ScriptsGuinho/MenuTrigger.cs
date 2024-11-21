@@ -7,6 +7,7 @@ public class MenuTrigger : MonoBehaviour
     public float distance;
     public bool isTask;
     public Transform playerCamera;
+    public GameObject gasTask;
 
     [Header("IGNORAR CASO NÃO SEJA  O TERMINAL!!!")]
     public GameObject terminal;
@@ -24,6 +25,11 @@ public class MenuTrigger : MonoBehaviour
             if (hit.collider.tag == "LinesPainel" + GameManager.instance._indexLineTask && (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.E)) && isTask)
             {
                 GameManager.instance.linesTasks[GameManager.instance._indexLineTask].SetActive(true);
+            }
+
+            if (hit.collider.tag == "TimeKill" && GameManager.instance._taskOxigenToDo && (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.E)) && isTask)
+            {
+                gasTask.SetActive(true);
             }
         }
     }

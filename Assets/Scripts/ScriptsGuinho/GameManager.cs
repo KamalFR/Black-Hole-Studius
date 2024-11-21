@@ -12,6 +12,7 @@ public class GameManager : Singleton<GameManager>
     public TextMeshProUGUI tmpAlarm;
     public string textLinesAlarm;
     public string textEngineAlarm;
+    public string textGasAlarm;
 
     public List<GameObject> linesTasks;
     public List<GameObject> enginesCollectables;
@@ -27,9 +28,9 @@ public class GameManager : Singleton<GameManager>
         _taskOxigenToDo = false;
     }
 
-    public void StartEngineTask(EngineTask task, int amount)
+    public void StartEngineTask()
     {
-        StartCoroutine(EngineCoroutine(task, amount));
+        StartCoroutine(EngineCoroutine());
         StartCoroutine(TextCoroutine());
     }
 
@@ -41,17 +42,17 @@ public class GameManager : Singleton<GameManager>
 
     public void StartOxigenTask()
     {
-        _taskOxigenToDo = true;
         StartCoroutine(OxigenCoroutine());
+        StartCoroutine(TextCoroutine());
     }
 
-    IEnumerator EngineCoroutine(EngineTask task, int amount)
+    IEnumerator EngineCoroutine()
     {
         tmpAlarm.text = textEngineAlarm;
 
-        task.StartTask(amount);
+        EngineTask.instance.StartTask();
 
-        for(int i = 0; i < amount; i++)
+        for(int i = 0; i < EngineTask.instance.missingEngines; i++)
         {
             var index = Random.Range(0, enginesCollectables.Count);
             
@@ -75,7 +76,9 @@ public class GameManager : Singleton<GameManager>
     }
     IEnumerator OxigenCoroutine()
     {
-        //_taskLinesToDo = false;
+        _taskOxigenToDo = true;
+        tmpAlarm.text = textGasAlarm;
+
         yield return new WaitForSeconds(75f);
 
         if (_taskOxigenToDo) loseMenu.SetActive(true);
@@ -83,7 +86,7 @@ public class GameManager : Singleton<GameManager>
 
     IEnumerator TextCoroutine()
     {
-        while (_indexLineTask != -1 || _taskEngineToDo)
+        while (_indexLineTask != -1 || _taskEngineToDo || _taskOxigenToDo)
         {
             gameObjectAlarm.SetActive(true);
             yield return new WaitForSeconds(1f);

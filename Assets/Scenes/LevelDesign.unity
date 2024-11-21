@@ -1748,10 +1748,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winMenu: {fileID: 591147372}
   isTask: 1
-  engine: 0
-  line: 1
-  missingEngines: 0
-  engineTask: {fileID: 0}
 --- !u!58 &54706799
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6051,17 +6047,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4e58328b6fa1dfb40aba9bbc755235e6, type: 3}
   m_PrefabInstance: {fileID: 170959306}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &174526773 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8405044186190385797, guid: 65a72fa780cc45e4caedf0d134d684bf, type: 3}
-  m_PrefabInstance: {fileID: 143488339}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c333444fb3347b8449e0e985160223cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &180531521
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7638,7 +7623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3a769ca2757412147b2910769ea376da, type: 3}
       propertyPath: m_Name
-      value: gascanis
+      value: GasTask
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3a769ca2757412147b2910769ea376da, type: 3}
       propertyPath: m_IsActive
@@ -7685,6 +7670,7 @@ MonoBehaviour:
   distance: 3
   isTask: 1
   playerCamera: {fileID: 784642749}
+  gasTask: {fileID: 760310254}
   terminal: {fileID: 0}
   menuTag: 
 --- !u!136 &232286970
@@ -10266,10 +10252,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winMenu: {fileID: 591147372}
   isTask: 1
-  engine: 0
-  line: 1
-  missingEngines: 2
-  engineTask: {fileID: 0}
 --- !u!58 &336371278
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10444,6 +10426,7 @@ MonoBehaviour:
   distance: 3
   isTask: 1
   playerCamera: {fileID: 784642749}
+  gasTask: {fileID: 0}
   terminal: {fileID: 0}
   menuTag: 
 --- !u!65 &343379508
@@ -16186,8 +16169,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547544505}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.28, y: 1.98, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.2800293, y: 1.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16207,10 +16190,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winMenu: {fileID: 591147372}
   isTask: 1
-  engine: 0
-  line: 1
-  missingEngines: 2
-  engineTask: {fileID: 0}
 --- !u!58 &547544508
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -17292,10 +17271,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winMenu: {fileID: 591147372}
   isTask: 1
-  engine: 0
-  line: 1
-  missingEngines: 2
-  engineTask: {fileID: 0}
 --- !u!58 &577520374
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -25566,10 +25541,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winMenu: {fileID: 591147372}
   isTask: 1
-  engine: 0
-  line: 1
-  missingEngines: 2
-  engineTask: {fileID: 0}
 --- !u!58 &843627659
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -27981,10 +27952,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winMenu: {fileID: 591147372}
   isTask: 1
-  engine: 0
-  line: 1
-  missingEngines: 2
-  engineTask: {fileID: 0}
 --- !u!58 &940924347
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -29426,6 +29393,7 @@ MonoBehaviour:
   distance: 3
   isTask: 1
   playerCamera: {fileID: 784642749}
+  gasTask: {fileID: 0}
   terminal: {fileID: 0}
   menuTag: 
 --- !u!1001 &1005892743
@@ -30801,12 +30769,59 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4043113926021258446, guid: e7ebcf0469cf0fc498a46c43afcae035, type: 3}
-      propertyPath: taskCanvas
+    - target: {fileID: 2182445735992986849, guid: e7ebcf0469cf0fc498a46c43afcae035, type: 3}
+      propertyPath: m_Text
+      value: 'aaaaaaaa
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182445735992986849, guid: e7ebcf0469cf0fc498a46c43afcae035, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182445735992986849, guid: e7ebcf0469cf0fc498a46c43afcae035, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139737367316425141, guid: e7ebcf0469cf0fc498a46c43afcae035, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139737367316425141, guid: e7ebcf0469cf0fc498a46c43afcae035, type: 3}
+      propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 760310254}
+      objectReference: {fileID: 21300000, guid: 156c51bba7cc9d24496e86f11d08bbaf, type: 3}
+    - target: {fileID: 5550469997907730954, guid: e7ebcf0469cf0fc498a46c43afcae035, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 232.7195
+      objectReference: {fileID: 0}
+    - target: {fileID: 5550469997907730954, guid: e7ebcf0469cf0fc498a46c43afcae035, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 232.7195
+      objectReference: {fileID: 0}
+    - target: {fileID: 5550469997907730954, guid: e7ebcf0469cf0fc498a46c43afcae035, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5550469997907730954, guid: e7ebcf0469cf0fc498a46c43afcae035, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -320
+      objectReference: {fileID: 0}
+    - target: {fileID: 9140611417364725336, guid: e7ebcf0469cf0fc498a46c43afcae035, type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9140611417364725336, guid: e7ebcf0469cf0fc498a46c43afcae035, type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9140611417364725336, guid: e7ebcf0469cf0fc498a46c43afcae035, type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6218090892093697029, guid: e7ebcf0469cf0fc498a46c43afcae035, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7ebcf0469cf0fc498a46c43afcae035, type: 3}
@@ -38422,6 +38437,7 @@ MonoBehaviour:
   distance: 3
   isTask: 1
   playerCamera: {fileID: 784642749}
+  gasTask: {fileID: 0}
   terminal: {fileID: 0}
   menuTag: 
 --- !u!65 &1297420171
@@ -48584,7 +48600,7 @@ Transform:
   m_GameObject: {fileID: 1670159246}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.52, y: -1.77, z: 0}
+  m_LocalPosition: {x: 2.39, y: -0.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48604,10 +48620,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winMenu: {fileID: 591147372}
   isTask: 1
-  engine: 1
-  line: 0
-  missingEngines: 2
-  engineTask: {fileID: 174526773}
 --- !u!58 &1670159249
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -55477,8 +55489,9 @@ MonoBehaviour:
   loseMenu: {fileID: 2032085697}
   gameObjectAlarm: {fileID: 1579477068}
   tmpAlarm: {fileID: 1579477071}
-  textLinesAlarm: "CORRE PRA CAIXA DE ENERGIA N\xBA 0"
-  textEngineAlarm: DEU RUIM NO MOTOR
+  textLinesAlarm: "ALGO ESTRANHO NA CAIXA DE ENERGIA N\xBA "
+  textEngineAlarm: "MOTOR DESTRU\xCDDO... VOC\xCA SER\xC1 O PR\xD3XIMO"
+  textGasAlarm: "OXIG\xCANIO CR\xCDTICO... VOC\xCA MORRER\xC1 EM BREVE"
   linesTasks:
   - {fileID: 397375242}
   - {fileID: 294598548}
@@ -56490,6 +56503,7 @@ MonoBehaviour:
   distance: 3
   isTask: 1
   playerCamera: {fileID: 784642749}
+  gasTask: {fileID: 0}
   terminal: {fileID: 0}
   menuTag: 
 --- !u!65 &1958263379
@@ -56607,7 +56621,7 @@ Transform:
   m_GameObject: {fileID: 1961312492}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.048, y: -1.471, z: 0}
+  m_LocalPosition: {x: 2.05, y: -1.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56627,10 +56641,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winMenu: {fileID: 591147372}
   isTask: 1
-  engine: 0
-  line: 0
-  missingEngines: 0
-  engineTask: {fileID: 0}
 --- !u!58 &1961312495
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -59144,6 +59154,7 @@ MonoBehaviour:
   distance: 3
   isTask: 1
   playerCamera: {fileID: 784642749}
+  gasTask: {fileID: 0}
   terminal: {fileID: 0}
   menuTag: 
 --- !u!65 &2054247899
@@ -59893,10 +59904,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winMenu: {fileID: 591147372}
   isTask: 0
-  engine: 0
-  line: 0
-  missingEngines: 0
-  engineTask: {fileID: 0}
 --- !u!58 &2094946818
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -61334,6 +61341,7 @@ MonoBehaviour:
   distance: 3
   isTask: 0
   playerCamera: {fileID: 784642749}
+  gasTask: {fileID: 0}
   terminal: {fileID: 133118587}
   menuTag: TerminalPainel
 --- !u!65 &2134179805
@@ -61698,6 +61706,7 @@ MonoBehaviour:
   distance: 3
   isTask: 1
   playerCamera: {fileID: 784642749}
+  gasTask: {fileID: 0}
   terminal: {fileID: 0}
   menuTag: 
 --- !u!65 &2147229705
