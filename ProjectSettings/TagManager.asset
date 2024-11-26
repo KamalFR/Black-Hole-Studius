@@ -25,6 +25,7 @@ TagManager:
   - LinesPainel5
   - Tela
   - LinesPainel
+  - ShipLight
   layers:
   - Default
   - TransparentFX
