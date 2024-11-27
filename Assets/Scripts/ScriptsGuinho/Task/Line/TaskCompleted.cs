@@ -21,6 +21,7 @@ public class TaskCompleted : MonoBehaviour
         if (end) //Se entrar aqui a task foi concluída
         {
             GameManager.instance._indexLineTask = -1;
+            LightManager.instance.StartAlarmLight = false;
 
             menu.SetActive(false);
 

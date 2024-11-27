@@ -19,7 +19,7 @@ public class GameManager : Singleton<GameManager>
 
     [HideInInspector] public bool _taskEngineToDo;
     [HideInInspector] public bool _taskOxigenToDo;
-    [HideInInspector] public int _indexLineTask;
+     public int _indexLineTask;
 
     private void Start()
     {
@@ -31,19 +31,19 @@ public class GameManager : Singleton<GameManager>
     public void StartEngineTask()
     {
         StartCoroutine(EngineCoroutine());
-        StartCoroutine(TextCoroutine());
+        StartCoroutine(AmbianceCoroutine());
     }
 
     public void StartLinesTask(int index)
     {
         StartCoroutine(LinesCoroutine(index));
-        StartCoroutine(TextCoroutine());
+        StartCoroutine(AmbianceCoroutine());
     }
 
     public void StartOxigenTask()
     {
         StartCoroutine(OxigenCoroutine());
-        StartCoroutine(TextCoroutine());
+        StartCoroutine(AmbianceCoroutine());
     }
 
     IEnumerator EngineCoroutine()
@@ -84,8 +84,10 @@ public class GameManager : Singleton<GameManager>
         if (_taskOxigenToDo) loseMenu.SetActive(true);
     }
 
-    IEnumerator TextCoroutine()
+    IEnumerator AmbianceCoroutine()
     {
+        LightManager.instance.StartAlarmLight = true;
+
         while (_indexLineTask != -1 || _taskEngineToDo || _taskOxigenToDo)
         {
             gameObjectAlarm.SetActive(true);
@@ -94,13 +96,4 @@ public class GameManager : Singleton<GameManager>
             yield return new WaitForSeconds(1f);
         }
     }
-
-    /*public bool GetTeste()
-    {
-        return _taskLinesToDo;
-    }
-    public void SetTest(bool t)
-    {
-        _taskLinesToDo = t;
-    }*/
 }

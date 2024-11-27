@@ -15,9 +15,9 @@ public class TimingGame : MonoBehaviour
     public int requiredScore = 80; // Pontuação necessária para completar a task
 
     // Pontuações configuráveis para cada área
-    public int greenScore = 20;
-    public int yellowScore = 10;
-    public int redScore = 5;
+    public int greenScore;
+    public int yellowScore;
+    public int redScore;
 
     private RectTransform barRectTransform;
     private RectTransform lineRectTransform;
@@ -97,5 +97,7 @@ public class TimingGame : MonoBehaviour
     {
         GameManager.instance._taskOxigenToDo = false;
         taskCanvas.SetActive(false);
+        LightManager.instance.StartAlarmLight = false;
+        currentScore = 0;
     }
 }
