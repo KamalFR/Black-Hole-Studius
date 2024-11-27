@@ -4,8 +4,9 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.ProBuilder;
+using Luksguin;
 
-public class LightManager : MonoBehaviour
+public class LightManager : Singleton<LightManager>
 {
     public bool StartAlarmLight;
     private bool _alarmTurnedOff;

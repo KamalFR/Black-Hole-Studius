@@ -14,12 +14,19 @@ public class EngineTask : Singleton<EngineTask>
     public List<GameObject> engines;
     public List<EngineAnimation> animations;
 
+    private bool _canCheck;
+
+    private void Start()
+    {
+       _canCheck = false;
+    }
+
     public void StartTask()
     {
         alarme.Play();
         GameManager.instance._taskEngineToDo = true;
 
-        for(int i = 0; i < missingEngines; i++)
+        for (int i = 0; i < missingEngines; i++)
         {
             engines[i].SetActive(false);
         }
@@ -28,6 +35,8 @@ public class EngineTask : Singleton<EngineTask>
         {
             anim._canMove = false;
         }
+        _canCheck = true;
+
     }
 
     private void Update()
@@ -60,8 +69,9 @@ public class EngineTask : Singleton<EngineTask>
         {
             alarme.Pause();
             GameManager.instance._taskEngineToDo = false;
-
-            foreach(GameObject obj in GameManager.instance.enginesCollectables)
+            if(_canCheck)LightManager.instance.StartAlarmLight = false;
+            
+            foreach (GameObject obj in GameManager.instance.enginesCollectables)
             {
                 obj.SetActive(false);
             }
@@ -70,6 +80,8 @@ public class EngineTask : Singleton<EngineTask>
             {
                 anim._canMove = true;
             }
+            _canCheck = false;
+
         }
     }
 }
