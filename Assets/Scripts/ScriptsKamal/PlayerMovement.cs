@@ -44,14 +44,14 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = transform.right * movementDirection.x * speed;
         }*/
-        if(movementDirection == Vector3.zero)
+        if (movementDirection == Vector3.zero)
         {
             rb.velocity = Vector3.zero;
         }
     }
     private void Update()
     {
-        for (int i = 0; i < menus.Count; i++) 
+        for (int i = 0; i < menus.Count; i++)
             if (menus[i].activeInHierarchy == true)
             {
                 Cursor.visible = true;
@@ -60,28 +60,23 @@ public class PlayerMovement : MonoBehaviour
 
         Cursor.visible = false;
 
-        if (Input.GetKey(KeyCode.W))
-        {
-            myAnimator.speed = 1;
-            rb.velocity = transform.forward * speed;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            myAnimator.speed = 1;
-            rb.velocity = transform.forward * speed * (-1);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            myAnimator.speed = 1;
-            rb.velocity = transform.right * speed;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            myAnimator.speed = 1;
-            rb.velocity = transform.right * speed * (-1);
-        }
+        Vector3 movementDirection = Vector3.zero;
 
-        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D)) myAnimator.speed = 0;
+        if (Input.GetKey(KeyCode.W)) movementDirection += transform.forward;
+        if (Input.GetKey(KeyCode.S)) movementDirection -= transform.forward;
+        if (Input.GetKey(KeyCode.D)) movementDirection += transform.right;
+        if (Input.GetKey(KeyCode.A)) movementDirection -= transform.right;
+
+        if (movementDirection != Vector3.zero)
+        {
+            movementDirection.Normalize();
+            rb.velocity = movementDirection * speed;
+            myAnimator.speed = 1;
+        }
+        else
+        {
+            rb.velocity = Vector3.zero;
+            myAnimator.speed = 0;
+        }
     }
 }
-    
