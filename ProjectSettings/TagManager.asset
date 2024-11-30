@@ -3,7 +3,29 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - baixo
+  - direita
+  - esquerda
+  - cima
+  - Nave
+  - Green
+  - Yellow
+  - Red
+  - Botoes
+  - Painel
+  - TerminalPainel
+  - Engine
+  - LinesPainel1
+  - LinesPainel0
+  - TimeKill
+  - LinesPainel2
+  - LinesPainel3
+  - LinesPainel4
+  - LinesPainel5
+  - Tela
+  - LinesPainel
+  - ShipLight
   layers:
   - Default
   - TransparentFX
@@ -11,7 +33,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - NotPixel
   - 
   - 
   - 
