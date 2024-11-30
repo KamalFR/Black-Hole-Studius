@@ -16,13 +16,17 @@ public class EngineTask : Singleton<EngineTask>
 
     private bool _canCheck;
 
+    [SerializeField] private GameObject _warningTask;
+
     private void Start()
     {
-       _canCheck = false;
+        _warningTask.SetActive(false);
+        _canCheck = false;
     }
 
     public void StartTask()
     {
+        _warningTask.SetActive(true);
         alarme.Play();
         GameManager.instance._taskEngineToDo = true;
 
@@ -65,12 +69,13 @@ public class EngineTask : Singleton<EngineTask>
             if (engines[i].activeInHierarchy) actives++;
         }
 
-        if (actives == engines.Count) //Se entra aq significa que a task foi concluída
+        if (actives == engines.Count) //Se entra aq significa que a task foi concluï¿½da
         {
+            _warningTask.SetActive(false);
             alarme.Pause();
             GameManager.instance._taskEngineToDo = false;
-            if(_canCheck)LightManager.instance.StartAlarmLight = false;
-            
+            if (_canCheck) LightManager.instance.StartAlarmLight = false;
+
             foreach (GameObject obj in GameManager.instance.enginesCollectables)
             {
                 obj.SetActive(false);
