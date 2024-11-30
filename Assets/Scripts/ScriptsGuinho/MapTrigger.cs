@@ -27,4 +27,13 @@ public class MapTrigger : MonoBehaviour
 
         Destroy(gameObject);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        var index = Random.Range(0, 3);
+        Debug.Log(index);
+        if (index == 0) GameManager.instance.StartEngineTask();
+        else if (index == 1) GameManager.instance.StartLinesTask(Random.Range(0, GameManager.instance.linesTasks.Count));
+        else GameManager.instance.StartOxigenTask();
+    }
 }
