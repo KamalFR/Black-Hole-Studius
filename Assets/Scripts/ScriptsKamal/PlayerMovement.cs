@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 10;
+    [SerializeField] private float speed;
     private PlayerInputs input;
     private Rigidbody rb;
 
@@ -14,10 +14,15 @@ public class PlayerMovement : MonoBehaviour
     public List<GameObject> menus;
     public Animator myAnimator;
 
+    [SerializeField] private float _maxStamina;
+    [SerializeField] private float _currentStamina;
+    private bool _isTired;
+
     private void Awake()
     {
         input = new PlayerInputs();
         rb = GetComponent<Rigidbody>();
+        _isTired = false;
     }
     private void OnEnable()
     {
@@ -44,14 +49,14 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = transform.right * movementDirection.x * speed;
         }*/
-        if(movementDirection == Vector3.zero)
+        if (movementDirection == Vector3.zero)
         {
             rb.velocity = Vector3.zero;
         }
     }
-    private void Update()
+    private void FixedUpdate()
     {
-        for (int i = 0; i < menus.Count; i++) 
+        for (int i = 0; i < menus.Count; i++)
             if (menus[i].activeInHierarchy == true)
             {
                 Cursor.visible = true;
@@ -59,29 +64,81 @@ public class PlayerMovement : MonoBehaviour
             }
 
         Cursor.visible = false;
+        // Correr (aumenta a velocidade do player)]
+        float currentSpeed;
+        if (_isTired)
+        {
+            if (_currentStamina < _maxStamina)
+            {
+                _currentStamina += Time.deltaTime;
+            }
+            else
+            {
+                _isTired = false;
+            }
+            currentSpeed = .5f;
+        }
+        else
+        {
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                if (_currentStamina > 0)
+                {
+                    currentSpeed = 1.5f;
+                    _currentStamina -= Time.deltaTime;
+                }
+                else
+                {
+                    if (_currentStamina < _maxStamina)
+                    {
+                        _currentStamina += Time.deltaTime;
+                    }
+                    else
+                    {
+                        _isTired = false;
+                    }
+                    currentSpeed = .5f;
+                    _isTired = true;
+                }
+            }
+            else
+            {
+                currentSpeed = 1;
+                if (_currentStamina < _maxStamina)
+                {
+                    _currentStamina += Time.deltaTime;
+                }
+                else
+                {
+                    _isTired = false;
+                }
+            }
+        }
 
-        if (Input.GetKey(KeyCode.W))
+
+        // Cansa por um tempo cooldown
+
+
+        float horizontalMovement = Input.GetAxis("Horizontal");
+        float verticalMovement = Input.GetAxis("Vertical");
+        float mouseAxis = Input.GetAxis("Mouse X");
+
+        Vector3 movementDirection = transform.right * horizontalMovement + transform.forward * verticalMovement;
+
+        if (movementDirection.magnitude > 0)
         {
             myAnimator.speed = 1;
-            rb.velocity = transform.forward * speed;
         }
-        if (Input.GetKey(KeyCode.S))
+        else
         {
-            myAnimator.speed = 1;
-            rb.velocity = transform.forward * speed * (-1);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            myAnimator.speed = 1;
-            rb.velocity = transform.right * speed;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            myAnimator.speed = 1;
-            rb.velocity = transform.right * speed * (-1);
+            myAnimator.speed = 0;
         }
 
-        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D)) myAnimator.speed = 0;
+        rb.velocity = movementDirection * (speed * currentSpeed);
+        transform.Rotate(0, mouseAxis, 0);
+
+
+
     }
 }
-    
+
