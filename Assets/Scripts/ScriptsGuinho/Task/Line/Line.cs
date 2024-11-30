@@ -14,11 +14,12 @@ public class Line : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public Image lineImage;
 
-    private Vector2 _startPosition;
-    [HideInInspector] public bool _isConnected = false;
+    [HideInInspector] public Vector2 _startPosition;
+    [HideInInspector] public bool _isConnected;
 
     private void Start()
     {
+        _isConnected = false;
         _startPosition = head.position;
         Cursor.visible = true;
     }

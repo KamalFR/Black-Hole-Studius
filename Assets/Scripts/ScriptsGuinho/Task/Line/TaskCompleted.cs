@@ -11,17 +11,25 @@ public class TaskCompleted : MonoBehaviour
 
     private void Update()
     {
-        if (tasks.Count == 0) //Se entrar aqui a task foi concluída
-        {
-            //GameManager.instance._taskLinesToDo = false;
-            GameManager.instance._indexLineTask = -1;
+        var end = true;
 
-            menu.SetActive(false);
+        foreach(Line line in tasks)
+        {
+            if (!line._isConnected) end = false;
         }
 
-        for (int i = 0; i < tasks.Count; i++)
+        if (end) //Se entrar aqui a task foi concluída
         {
-            if (tasks[i]._isConnected == true) tasks.Remove(tasks[i]);
+            GameManager.instance._indexLineTask = -1;
+            LightManager.instance.StartAlarmLight = false;
+
+            menu.SetActive(false);
+
+            foreach(Line line in tasks)
+            {
+                line.head.position = line._startPosition;
+                line._isConnected = false;
+            }
         }
     }
 }

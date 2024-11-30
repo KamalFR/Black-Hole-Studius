@@ -5,20 +5,8 @@ using UnityEngine;
 public class MapTrigger : MonoBehaviour
 {
     public GameObject winMenu;
+
     public bool isTask;
-
-    [Header("IGNORAR CASO NÃO SEJA TASK!!!")]
-    public bool engine;
-    public bool line;
-
-    public int missingEngines;
-
-    public EngineTask engineTask;
-
-    private void Start()
-    {
-        line = !engine;
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -30,10 +18,22 @@ public class MapTrigger : MonoBehaviour
         }
         else
         {
-            if (engine) GameManager.instance.StartEngineTask(engineTask, missingEngines);
-            if (line) GameManager.instance.StartLinesTask(Random.Range(0, GameManager.instance.linesTasks.Count));
+            var index = Random.Range(0, 3);
+            Debug.Log(index);
+            if (index == 0) GameManager.instance.StartEngineTask();
+            else if (index == 1) GameManager.instance.StartLinesTask(Random.Range(0, GameManager.instance.linesTasks.Count));
+            else GameManager.instance.StartOxigenTask();
         }
 
         Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        var index = Random.Range(0, 3);
+        Debug.Log(index);
+        if (index == 0) GameManager.instance.StartEngineTask();
+        else if (index == 1) GameManager.instance.StartLinesTask(Random.Range(0, GameManager.instance.linesTasks.Count));
+        else GameManager.instance.StartOxigenTask();
     }
 }

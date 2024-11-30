@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 10;
+    [SerializeField] private float speed;
     private PlayerInputs input;
     private Rigidbody rb;
 
@@ -14,10 +14,15 @@ public class PlayerMovement : MonoBehaviour
     public List<GameObject> menus;
     public Animator myAnimator;
 
+    [SerializeField] private float _maxStamina;
+    [SerializeField] private float _currentStamina;
+    private bool _isTired;
+
     private void Awake()
     {
         input = new PlayerInputs();
         rb = GetComponent<Rigidbody>();
+        _isTired = false;
     }
     private void OnEnable()
     {
@@ -49,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = Vector3.zero;
         }
     }
-    private void Update()
+    private void FixedUpdate()
     {
         for (int i = 0; i < menus.Count; i++)
             if (menus[i].activeInHierarchy == true)
@@ -59,24 +64,81 @@ public class PlayerMovement : MonoBehaviour
             }
 
         Cursor.visible = false;
-
-        Vector3 movementDirection = Vector3.zero;
-
-        if (Input.GetKey(KeyCode.W)) movementDirection += transform.forward;
-        if (Input.GetKey(KeyCode.S)) movementDirection -= transform.forward;
-        if (Input.GetKey(KeyCode.D)) movementDirection += transform.right;
-        if (Input.GetKey(KeyCode.A)) movementDirection -= transform.right;
-
-        if (movementDirection != Vector3.zero)
+        // Correr (aumenta a velocidade do player)]
+        float currentSpeed;
+        if (_isTired)
         {
-            movementDirection.Normalize();
-            rb.velocity = movementDirection * speed;
+            if (_currentStamina < _maxStamina)
+            {
+                _currentStamina += Time.deltaTime;
+            }
+            else
+            {
+                _isTired = false;
+            }
+            currentSpeed = .5f;
+        }
+        else
+        {
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                if (_currentStamina > 0)
+                {
+                    currentSpeed = 1.5f;
+                    _currentStamina -= Time.deltaTime;
+                }
+                else
+                {
+                    if (_currentStamina < _maxStamina)
+                    {
+                        _currentStamina += Time.deltaTime;
+                    }
+                    else
+                    {
+                        _isTired = false;
+                    }
+                    currentSpeed = .5f;
+                    _isTired = true;
+                }
+            }
+            else
+            {
+                currentSpeed = 1;
+                if (_currentStamina < _maxStamina)
+                {
+                    _currentStamina += Time.deltaTime;
+                }
+                else
+                {
+                    _isTired = false;
+                }
+            }
+        }
+
+
+        // Cansa por um tempo cooldown
+
+
+        float horizontalMovement = Input.GetAxis("Horizontal");
+        float verticalMovement = Input.GetAxis("Vertical");
+        float mouseAxis = Input.GetAxis("Mouse X");
+
+        Vector3 movementDirection = transform.right * horizontalMovement + transform.forward * verticalMovement;
+
+        if (movementDirection.magnitude > 0)
+        {
             myAnimator.speed = 1;
         }
         else
         {
-            rb.velocity = Vector3.zero;
             myAnimator.speed = 0;
         }
+
+        rb.velocity = movementDirection * (speed * currentSpeed);
+        transform.Rotate(0, mouseAxis, 0);
+
+
+
     }
 }
+

@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Luksguin;
 
-public class EngineTask : MonoBehaviour
+public class EngineTask : Singleton<EngineTask>
 {
     public float distance;
+    public int missingEngines;
 
     public Transform playerCamera;
     public AudioSource alarme;
@@ -12,12 +14,19 @@ public class EngineTask : MonoBehaviour
     public List<GameObject> engines;
     public List<EngineAnimation> animations;
 
-    public void StartTask(int amount)
+    private bool _canCheck;
+
+    private void Start()
+    {
+       _canCheck = false;
+    }
+
+    public void StartTask()
     {
         alarme.Play();
         GameManager.instance._taskEngineToDo = true;
 
-        for(int i = 0; i < amount; i++)
+        for (int i = 0; i < missingEngines; i++)
         {
             engines[i].SetActive(false);
         }
@@ -26,6 +35,8 @@ public class EngineTask : MonoBehaviour
         {
             anim._canMove = false;
         }
+        _canCheck = true;
+
     }
 
     private void Update()
@@ -58,8 +69,9 @@ public class EngineTask : MonoBehaviour
         {
             alarme.Pause();
             GameManager.instance._taskEngineToDo = false;
-
-            foreach(GameObject obj in GameManager.instance.enginesCollectables)
+            if(_canCheck)LightManager.instance.StartAlarmLight = false;
+            
+            foreach (GameObject obj in GameManager.instance.enginesCollectables)
             {
                 obj.SetActive(false);
             }
@@ -68,6 +80,8 @@ public class EngineTask : MonoBehaviour
             {
                 anim._canMove = true;
             }
+            _canCheck = false;
+
         }
     }
 }

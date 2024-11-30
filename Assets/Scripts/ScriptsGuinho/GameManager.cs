@@ -12,13 +12,14 @@ public class GameManager : Singleton<GameManager>
     public TextMeshProUGUI tmpAlarm;
     public string textLinesAlarm;
     public string textEngineAlarm;
+    public string textGasAlarm;
 
     public List<GameObject> linesTasks;
     public List<GameObject> enginesCollectables;
 
     [HideInInspector] public bool _taskEngineToDo;
     [HideInInspector] public bool _taskOxigenToDo;
-    [HideInInspector] public int _indexLineTask;
+     public int _indexLineTask;
 
     private void Start()
     {
@@ -27,33 +28,36 @@ public class GameManager : Singleton<GameManager>
         _taskOxigenToDo = false;
     }
 
-    public void StartEngineTask(EngineTask task, int amount)
+    public void StartEngineTask()
     {
-        StartCoroutine(EngineCoroutine(task, amount));
-        StartCoroutine(TextCoroutine());
+        StartCoroutine(EngineCoroutine());
+        StartCoroutine(AmbianceCoroutine());
     }
 
     public void StartLinesTask(int index)
     {
         StartCoroutine(LinesCoroutine(index));
-        StartCoroutine(TextCoroutine());
+        StartCoroutine(AmbianceCoroutine());
     }
 
     public void StartOxigenTask()
     {
-        _taskOxigenToDo = true;
         StartCoroutine(OxigenCoroutine());
+        StartCoroutine(AmbianceCoroutine());
     }
 
-    IEnumerator EngineCoroutine(EngineTask task, int amount)
+    IEnumerator EngineCoroutine()
     {
         tmpAlarm.text = textEngineAlarm;
 
-        task.StartTask(amount);
+        EngineTask.instance.StartTask();
 
-        foreach (GameObject obj in enginesCollectables)
+        for(int i = 0; i < EngineTask.instance.missingEngines; i++)
         {
-            obj.SetActive(true);
+            var index = Random.Range(0, enginesCollectables.Count);
+            
+            if (enginesCollectables[index].activeInHierarchy) i--;
+            else enginesCollectables[index].SetActive(true);
         }
 
         yield return new WaitForSeconds(75f);
@@ -72,15 +76,19 @@ public class GameManager : Singleton<GameManager>
     }
     IEnumerator OxigenCoroutine()
     {
-        //_taskLinesToDo = false;
+        _taskOxigenToDo = true;
+        tmpAlarm.text = textGasAlarm;
+
         yield return new WaitForSeconds(75f);
 
         if (_taskOxigenToDo) loseMenu.SetActive(true);
     }
 
-    IEnumerator TextCoroutine()
+    IEnumerator AmbianceCoroutine()
     {
-        while (_indexLineTask != -1 || _taskEngineToDo)
+        LightManager.instance.StartAlarmLight = true;
+
+        while (_indexLineTask != -1 || _taskEngineToDo || _taskOxigenToDo)
         {
             gameObjectAlarm.SetActive(true);
             yield return new WaitForSeconds(1f);
@@ -88,13 +96,4 @@ public class GameManager : Singleton<GameManager>
             yield return new WaitForSeconds(1f);
         }
     }
-
-    /*public bool GetTeste()
-    {
-        return _taskLinesToDo;
-    }
-    public void SetTest(bool t)
-    {
-        _taskLinesToDo = t;
-    }*/
 }
