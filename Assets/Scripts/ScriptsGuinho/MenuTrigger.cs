@@ -7,13 +7,31 @@ public class MenuTrigger : MonoBehaviour
     public float distance;
     public bool isTask;
     public Transform playerCamera;
+    [SerializeField] private GameObject _warningTask;
 
-    [Header("IGNORAR CASO NÃO SEJA  O TERMINAL!!!")]
+    [Header("IGNORAR CASO Nï¿½O SEJA  O TERMINAL!!!")]
     public GameObject terminal;
     public string menuTag;
 
+    public void Start()
+    {
+        if (isTask) _warningTask?.SetActive(false);
+    }
+
     private void Update()
     {
+        if (isTask)
+        {
+            if (gameObject.tag == "LinesPainel" + GameManager.instance._indexLineTask)
+            {
+                if (_warningTask?.activeSelf == false) _warningTask?.SetActive(true);
+            }
+            else
+            {
+                if (_warningTask?.activeSelf == true) _warningTask?.SetActive(false);
+            }
+        }
+
         if (Physics.Raycast(playerCamera.position, EngineAmount.instance.transform.TransformDirection(Vector3.forward), out RaycastHit hit, distance))
         {
             if (hit.collider.tag == menuTag && (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.E)) && !isTask)
