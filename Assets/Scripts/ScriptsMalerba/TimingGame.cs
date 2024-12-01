@@ -9,7 +9,7 @@ public class TimingGame : MonoBehaviour
     public Image gradientBar; // Referência à imagem da barra de gradiente
     public Image movingLine; // Referência à linha móvel
     public GameObject stopButton; // Botão para registrar a pontuação
-    public TextMeshProUGUI scoreText; // Texto da pontuação
+    public Slider ScoreSlider;
     public GameObject taskCanvas; // Canvas da task
     public float speed = 100f; // Velocidade de movimento da linha
     public int requiredScore = 80; // Pontuação necessária para completar a task
@@ -26,6 +26,7 @@ public class TimingGame : MonoBehaviour
 
     void Start()
     {
+        ScoreSlider.maxValue = requiredScore;
         barRectTransform = gradientBar.GetComponent<RectTransform>();
         lineRectTransform = movingLine.GetComponent<RectTransform>();
         UpdateScore(0);
@@ -40,16 +41,16 @@ public class TimingGame : MonoBehaviour
     {
         if (movingRight)
         {
-            lineRectTransform.anchoredPosition += Vector2.right * speed * Time.deltaTime;
-            if (lineRectTransform.anchoredPosition.x >= barRectTransform.rect.width / 2)
+            lineRectTransform.anchoredPosition += Vector2.up * speed * Time.deltaTime;
+            if (lineRectTransform.anchoredPosition.y >= barRectTransform.rect.width / 2)
             {
                 movingRight = false;
             }
         }
         else
         {
-            lineRectTransform.anchoredPosition -= Vector2.right * speed * Time.deltaTime;
-            if (lineRectTransform.anchoredPosition.x <= -barRectTransform.rect.width / 2)
+            lineRectTransform.anchoredPosition -= Vector2.up * speed * Time.deltaTime;
+            if (lineRectTransform.anchoredPosition.y <= -barRectTransform.rect.width / 2)
             {
                 movingRight = true;
             }
@@ -58,7 +59,7 @@ public class TimingGame : MonoBehaviour
 
     public void CalculateScore()
     {
-        float linePosition = lineRectTransform.anchoredPosition.x + barRectTransform.rect.width / 2;
+        float linePosition = lineRectTransform.anchoredPosition.y + barRectTransform.rect.width / 2;
         float barWidth = barRectTransform.rect.width;
         float percent = Mathf.InverseLerp(0, barWidth, linePosition);
 
@@ -90,7 +91,8 @@ public class TimingGame : MonoBehaviour
 
     void UpdateScore(int score)
     {
-        scoreText.text = $"Score: {score}";
+        Debug.Log(score);
+        ScoreSlider.value = score;
     }
 
     void CompleteTask()
