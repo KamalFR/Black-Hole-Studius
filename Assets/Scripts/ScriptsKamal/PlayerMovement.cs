@@ -134,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
             myAnimator.speed = 0;
         }
 
-        rb.velocity = movementDirection * (speed * currentSpeed);
+        rb.velocity = movementDirection.normalized * (speed * currentSpeed);
         transform.Rotate(0, mouseAxis, 0);
 
 
