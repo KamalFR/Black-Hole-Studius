@@ -14,8 +14,7 @@ public class CollectEngine : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     EngineAmount.instance.amount++;
-                    Destroy(hit.collider.gameObject);
-                    Debug.Log("gwdajhgd");
+                    hit.collider.gameObject.SetActive(false);
                 }
             }
         }
