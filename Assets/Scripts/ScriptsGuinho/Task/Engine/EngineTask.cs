@@ -74,6 +74,7 @@ public class EngineTask : Singleton<EngineTask>
             _warningTask.SetActive(false);
             alarme.Pause();
             GameManager.instance._taskEngineToDo = false;
+            GameManager.instance.StopTasks();
             if (_canCheck) LightManager.instance.StartAlarmLight = false;
 
             foreach (GameObject obj in GameManager.instance.enginesCollectables)
