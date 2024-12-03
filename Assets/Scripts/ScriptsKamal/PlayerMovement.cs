@@ -60,6 +60,8 @@ public class PlayerMovement : MonoBehaviour
             if (menus[i].activeInHierarchy == true)
             {
                 Cursor.visible = true;
+                myAnimator.speed = 0;
+
                 return;
             }
 
@@ -127,7 +129,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (movementDirection.magnitude > 0)
         {
-            myAnimator.speed = 1;
+            myAnimator.speed = 1 * currentSpeed;
         }
         else
         {

@@ -97,9 +97,13 @@ public class TimingGame : MonoBehaviour
 
     void CompleteTask()
     {
-        GameManager.instance._taskOxigenToDo = false;
         taskCanvas.SetActive(false);
+        
+        GameManager.instance._taskOxigenToDo = false;
+        GameManager.instance.StopTasks();
+
         LightManager.instance.StartAlarmLight = false;
+        
         currentScore = 0;
     }
 }

@@ -60,7 +60,9 @@ public class GameManager : Singleton<GameManager>
             else enginesCollectables[index].SetActive(true);
         }
 
-        yield return new WaitForSeconds(75f);
+        yield return new WaitForSeconds(60f);
+
+        Debug.Log("Achei");
 
         if (_taskEngineToDo) loseMenu.SetActive(true);
     }
@@ -82,6 +84,11 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitForSeconds(75f);
 
         if (_taskOxigenToDo) loseMenu.SetActive(true);
+    }
+
+    public void StopTasks()
+    {
+        StopAllCoroutines();
     }
 
     IEnumerator AmbianceCoroutine()
