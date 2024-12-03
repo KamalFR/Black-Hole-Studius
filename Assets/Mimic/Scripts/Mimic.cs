@@ -8,6 +8,7 @@ namespace MimicSpace
     {
         [Header("Animation")]
         public GameObject legPrefab;
+        private GameObject _currentLegPrefab;
 
         [Range(2, 20)]
         public int numberOfLegs = 5;
@@ -55,6 +56,7 @@ namespace MimicSpace
 
         void Start()
         {
+            _currentLegPrefab = legPrefab;
             ResetMimic();
         }
 
@@ -143,6 +145,13 @@ namespace MimicSpace
         // object pooling to limit leg instantiation
         void RequestLeg(Vector3 footPosition, int legResolution, float maxLegDistance, float growCoef, Mimic myMimic, float lifeTime)
         {
+            if (_currentLegPrefab != legPrefab)
+            {
+                ResetMimic();
+                _currentLegPrefab = legPrefab;
+                return;
+            }
+
             GameObject newLeg;
             if (availableLegPool.Count > 0)
             {
@@ -151,7 +160,7 @@ namespace MimicSpace
             }
             else
             {
-                newLeg = Instantiate(legPrefab, transform.position, Quaternion.identity);
+                newLeg = Instantiate(_currentLegPrefab, transform.position, Quaternion.identity);
             }
             newLeg.SetActive(true);
             newLeg.GetComponent<Leg>().Initialize(footPosition, legResolution, maxLegDistance, growCoef, myMimic, lifeTime);

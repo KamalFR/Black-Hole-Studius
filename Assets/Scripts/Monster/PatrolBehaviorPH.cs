@@ -59,9 +59,6 @@ public class PatrolBehaviorPH : MonoBehaviour
 
     IEnumerator RandomPatrol()
     {
-
-
-        Debug.Log(_patrolLocations.Count);
         int newIndex;
         do
         {
