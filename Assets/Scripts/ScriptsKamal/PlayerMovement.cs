@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
     private PlayerInputs input;
     private Rigidbody rb;
+    public Rigidbody Rb { get { return rb; } }
 
     [Header("Guinho")]
     public List<GameObject> menus;
@@ -18,12 +20,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _currentStamina;
     private bool _isTired;
 
+    [SerializeField] private Slider _staminaSlider;
+
     private void Awake()
     {
+
         input = new PlayerInputs();
         rb = GetComponent<Rigidbody>();
         _isTired = false;
     }
+
+    void Start()
+    {
+        _currentStamina = _maxStamina;
+        _staminaSlider.maxValue = _maxStamina;
+    }
+
     private void OnEnable()
     {
         input.Enable();
@@ -114,6 +126,8 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+
+        _staminaSlider.value = _currentStamina;
 
 
         // Cansa por um tempo cooldown
