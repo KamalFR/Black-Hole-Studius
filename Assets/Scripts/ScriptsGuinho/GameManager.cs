@@ -14,18 +14,24 @@ public class GameManager : Singleton<GameManager>
     public string textEngineAlarm;
     public string textGasAlarm;
 
+    private bool _isMonsterNearby;
+    public bool isMonsterNearby { get { return _isMonsterNearby; } set { _isMonsterNearby = value; } }
+    public string MonsterNearbyAlarm;
+    public string CurrentTextDisplay;
+
     public List<GameObject> linesTasks;
     public List<GameObject> enginesCollectables;
 
     [HideInInspector] public bool _taskEngineToDo;
     [HideInInspector] public bool _taskOxigenToDo;
-     public int _indexLineTask;
+    public int _indexLineTask;
 
     private void Start()
     {
         _indexLineTask = -1;
         _taskEngineToDo = false;
         _taskOxigenToDo = false;
+        _isMonsterNearby = false;
     }
 
     public void StartEngineTask()
@@ -46,16 +52,31 @@ public class GameManager : Singleton<GameManager>
         StartCoroutine(AmbianceCoroutine());
     }
 
+    public void Update()
+    {
+        if (_isMonsterNearby)
+        {
+            gameObjectAlarm.SetActive(true);
+            tmpAlarm.text = MonsterNearbyAlarm;
+        }
+        else
+        {
+            tmpAlarm.text = CurrentTextDisplay;
+            if (!(_indexLineTask != -1 || _taskEngineToDo || _taskOxigenToDo)) gameObjectAlarm.SetActive(false);
+        }
+    }
+
     IEnumerator EngineCoroutine()
     {
         tmpAlarm.text = textEngineAlarm;
+        CurrentTextDisplay = tmpAlarm.text;
 
         EngineTask.instance.StartTask();
 
-        for(int i = 0; i < EngineTask.instance.missingEngines; i++)
+        for (int i = 0; i < EngineTask.instance.missingEngines; i++)
         {
             var index = Random.Range(0, enginesCollectables.Count);
-            
+
             if (enginesCollectables[index].activeInHierarchy) i--;
             else enginesCollectables[index].SetActive(true);
         }
@@ -69,6 +90,7 @@ public class GameManager : Singleton<GameManager>
     {
         _indexLineTask = index;
         tmpAlarm.text = textLinesAlarm + _indexLineTask;
+        CurrentTextDisplay = tmpAlarm.text;
 
         yield return new WaitForSeconds(75f);
 
@@ -78,6 +100,7 @@ public class GameManager : Singleton<GameManager>
     {
         _taskOxigenToDo = true;
         tmpAlarm.text = textGasAlarm;
+        CurrentTextDisplay = tmpAlarm.text;
 
         yield return new WaitForSeconds(75f);
 
@@ -90,10 +113,13 @@ public class GameManager : Singleton<GameManager>
 
         while (_indexLineTask != -1 || _taskEngineToDo || _taskOxigenToDo)
         {
-            gameObjectAlarm.SetActive(true);
-            yield return new WaitForSeconds(1f);
-            gameObjectAlarm.SetActive(false);
-            yield return new WaitForSeconds(1f);
+            if (!_isMonsterNearby)
+            {
+                gameObjectAlarm.SetActive(true);
+                yield return new WaitForSeconds(1f);
+                gameObjectAlarm.SetActive(false);
+                yield return new WaitForSeconds(1f);
+            }
         }
     }
 }

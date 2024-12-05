@@ -27,7 +27,7 @@ public class GasTrigger : MonoBehaviour
         {
             if (_warningTask.activeSelf == false) _warningTask.SetActive(true);
 
-            if ((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.E))) gasTask.SetActive(true);
+            if (hit.collider.tag == "TimeKill" && (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.E))) gasTask.SetActive(true);
         }
     }
 }

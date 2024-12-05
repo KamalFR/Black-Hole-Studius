@@ -10,7 +10,7 @@ public class AtivarInterfaces : MonoBehaviour
     private bool canActive;
     private void Start()
     {
-    
+
         tamanho = ativar.Length;
         for (int i = 0; i < tamanho; i++)
         {
@@ -41,11 +41,12 @@ public class AtivarInterfaces : MonoBehaviour
             {
                 for (int i = 0; i < tamanho; i++)
                 {
-                    ativar[i].gameObject.SetActive(true);                
+                    ativar[i].gameObject.SetActive(true);
                 }
                 player.GetComponent<PlayerMovement>().enabled = false;
                 player.GetComponent<CameraRotate>().enabled = false;
                 Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
             }
         }
     }
