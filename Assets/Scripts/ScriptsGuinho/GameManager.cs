@@ -120,6 +120,11 @@ public class GameManager : Singleton<GameManager>
                 gameObjectAlarm.SetActive(false);
                 yield return new WaitForSeconds(1f);
             }
+            else
+            {
+                yield return null;
+            }
+
         }
     }
 }
