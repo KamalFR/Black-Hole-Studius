@@ -19,10 +19,12 @@ public class HealthHandler : MonoBehaviour
     [SerializeField] private float _normalSanityDecay;
     [SerializeField] private float _alertSanityDecay;
     private float _currentSanityDecay;
+    private bool _endTutorial;
 
     // Start is called before the first frame update
     void Start()
     {
+        _endTutorial = false;
         _currentSanity = 100;
         _sanitySlider.maxValue = _currentSanity;
         _sanitySlider.value = _currentSanity;
@@ -32,7 +34,8 @@ public class HealthHandler : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        LowerSanity();
+        if ((GameManager.instance._taskEngineToDo || GameManager.instance._indexLineTask != -1 || GameManager.instance._taskOxigenToDo) && !_endTutorial) _endTutorial = true;
+        if (_endTutorial) LowerSanity();
     }
 
     void LowerSanity()

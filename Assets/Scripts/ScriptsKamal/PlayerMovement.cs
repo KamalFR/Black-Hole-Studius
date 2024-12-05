@@ -72,10 +72,12 @@ public class PlayerMovement : MonoBehaviour
             if (menus[i].activeInHierarchy == true)
             {
                 Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
                 return;
             }
 
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         // Correr (aumenta a velocidade do player)]
         float currentSpeed;
         if (_isTired)
