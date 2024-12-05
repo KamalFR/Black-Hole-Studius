@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed;
     private PlayerInputs input;
     private Rigidbody rb;
+    public Rigidbody Rb { get { return rb; } }
 
     [Header("Guinho")]
     public List<GameObject> menus;

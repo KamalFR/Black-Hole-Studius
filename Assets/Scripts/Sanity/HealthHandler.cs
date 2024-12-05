@@ -37,9 +37,9 @@ public class HealthHandler : MonoBehaviour
 
     void LowerSanity()
     {
-        _currentSanityDecay = GameManager.instance._indexLineTask == -1 ? _normalSanityDecay : _alertSanityDecay;
+        _currentSanityDecay = (GameManager.instance._taskEngineToDo || GameManager.instance._indexLineTask != -1 || GameManager.instance._taskOxigenToDo) ? _alertSanityDecay : _normalSanityDecay;
 
-        _currentSanity -= _currentSanityDecay * Time.deltaTime;
+        if (_currentSanity >= 0) _currentSanity -= _currentSanityDecay * Time.deltaTime;
         _sanitySlider.value = _currentSanity;
     }
 }

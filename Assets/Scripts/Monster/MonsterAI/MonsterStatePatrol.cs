@@ -18,12 +18,19 @@ public class MonsterStatePatrol : MonsterState
     {
         _monsterReference.NavMeshAgent.isStopped = false;
         _monsterReference.CurrentPatrolIndex = 0;
+        _monsterReference.NavMeshAgent.speed = _monsterReference.MonsterPatrolSpeed;
         _monsterReference.NavMeshAgent.SetDestination(_monsterReference.PatrolWaypoints[_monsterReference.CurrentPatrolIndex].position);
         base.Enter();
     }
 
     public override void Update()
     {
+        if (0 >= _monsterReference.PlayerGameObjectReference.GetComponent<HealthHandler>().CurrentSanity || _monsterReference.EnterChase)
+        {
+            _monsterStage = MONSTER_EVENT.EXIT;
+            _monsterReference.NextState = new MonsterStateChase(_monsterReference);
+            return;
+        }
         if (_monsterReference.NavMeshAgent.remainingDistance < 1)
         {
             RandomPatrol();

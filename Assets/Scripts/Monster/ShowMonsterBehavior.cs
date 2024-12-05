@@ -21,6 +21,7 @@ public class ShowMonsterBehavior : MonoBehaviour
 
     [SerializeField] private float _sanityTranslucent;
     [SerializeField] private float _sanityVisible;
+    public float SanityVisible { get { return _sanityVisible; } }
     // Start is called before the first frame update
     void Start()
     {
