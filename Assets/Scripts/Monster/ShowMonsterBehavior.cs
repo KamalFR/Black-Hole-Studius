@@ -42,16 +42,21 @@ public class ShowMonsterBehavior : MonoBehaviour
 
     void CheckSanity()
     {
-        if (_playerHealthHandler.CurrentSanity > _sanityTranslucent) return;
+        if (_playerHealthHandler.CurrentSanity > _sanityTranslucent)
+        {
+            if (_sphereMesh.sharedMaterial != _invisibleMaterial) _sphereMesh.sharedMaterial = _invisibleMaterial;
+            if (_mimic.legPrefab != _invisibleLeg) _mimic.legPrefab = _invisibleLeg;
+            return;
+        }
 
         if (_playerHealthHandler.CurrentSanity > _sanityVisible)
         {
             if (_sphereMesh.sharedMaterial != _translucentMaterial) _sphereMesh.sharedMaterial = _translucentMaterial;
-            if (_mimic.legPrefab != _translucentMaterial) _mimic.legPrefab = _translucentLeg;
+            if (_mimic.legPrefab != _translucentLeg) _mimic.legPrefab = _translucentLeg;
             return;
         }
 
         if (_sphereMesh.sharedMaterial != _visibleMaterial) _sphereMesh.sharedMaterial = _visibleMaterial;
-        if (_mimic.legPrefab != _visibleMaterial) _mimic.legPrefab = _visibleLeg;
+        if (_mimic.legPrefab != _visibleLeg) _mimic.legPrefab = _visibleLeg;
     }
 }

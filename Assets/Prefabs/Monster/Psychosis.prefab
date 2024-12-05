@@ -186,15 +186,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8675915457954794083, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: velocity.x
-      value: -0.19567344
+      value: -0.21534508
       objectReference: {fileID: 0}
     - target: {fileID: 8675915457954794083, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: velocity.z
-      value: 0.3682528
+      value: -0.26981965
+      objectReference: {fileID: 0}
+    - target: {fileID: 8675915457954794083, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: partsPerLeg
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8675915457954794083, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: numberOfLegs
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8675915457954794083, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: maxLegDistance
       value: 6.2999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 8675915457954794083, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: maxLegLifetime
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8675915457954794083, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: minLegLifetime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8675915457954794083, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: minimumAnchoredParts
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8675915458194695972, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -210,7 +230,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8675915457954794080, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8751368188430747643}
+      addedObject: {fileID: 3133318467334414746}
+    - targetCorrespondingSourceObject: {fileID: 8675915457954794080, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6919451516680966248}
     - targetCorrespondingSourceObject: {fileID: 8675915457954794080, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2889841265028375969}
@@ -220,7 +243,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8675915457954794080, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
   m_PrefabInstance: {fileID: 861235835115701688}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8751368188430747643
+--- !u!114 &3133318467334414746
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -229,10 +252,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8328477639922667480}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6253ab437f4c6941a3438f790a82ed8, type: 3}
+  m_Script: {fileID: 11500000, guid: 6effd49f1750f6c4485b67fa5a53e273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _patrolLocations:
+  _stateName: 0
+  _patrolWaypoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -240,8 +264,29 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  _randomPatrolOrder: 1
   _waitPatrolTime: 5
+  _playerGameObjectReference: {fileID: 0}
+--- !u!114 &6919451516680966248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8328477639922667480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7332984b67e3b743af075f982797505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _visibleMaterial: {fileID: 2100000, guid: 0358bca9a5323694089ec559e7d5dbe3, type: 2}
+  _invisibleMaterial: {fileID: 2100000, guid: a3fbe84f0fed43c4183fb4b6387e8db6, type: 2}
+  _translucentMaterial: {fileID: 2100000, guid: 7d7f0a76279992f40924506f7f1c9e59, type: 2}
+  _visibleLeg: {fileID: 1682633662898237459, guid: fb7bce2dee9494540a1866bb5d230a51, type: 3}
+  _invisibleLeg: {fileID: 1682633662898237459, guid: f537ef1f2b438f34f9afaa51032464a9, type: 3}
+  _translucentLeg: {fileID: 1682633662898237459, guid: 40e3ff9c6b38bf44eac63a597f9def33, type: 3}
+  _playerHealthHandler: {fileID: 0}
+  _sanityTranslucent: 95
+  _sanityVisible: 90
 --- !u!195 &2889841265028375969
 NavMeshAgent:
   m_ObjectHideFlags: 0

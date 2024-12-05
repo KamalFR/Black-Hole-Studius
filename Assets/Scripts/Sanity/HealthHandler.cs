@@ -11,6 +11,7 @@ public class HealthHandler : MonoBehaviour
     public float CurrentSanity
     {
         get { return _currentSanity; }
+        set { _currentSanity = value; }
     }
 
     [SerializeField] private Slider _sanitySlider;
@@ -37,8 +38,6 @@ public class HealthHandler : MonoBehaviour
     void LowerSanity()
     {
         _currentSanityDecay = GameManager.instance._indexLineTask == -1 ? _normalSanityDecay : _alertSanityDecay;
-
-        Debug.Log(GameManager.instance._indexLineTask);
 
         _currentSanity -= _currentSanityDecay * Time.deltaTime;
         _sanitySlider.value = _currentSanity;
