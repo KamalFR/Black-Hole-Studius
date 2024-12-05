@@ -91,7 +91,6 @@ public class TimingGame : MonoBehaviour
 
     void UpdateScore(int score)
     {
-        Debug.Log(score);
         ScoreSlider.value = score;
     }
 
